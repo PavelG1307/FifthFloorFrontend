@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <title>5 этаж</title>
     <link href="styles.css" rel="stylesheet" />
+    <script src="./assets/js/jquery-3.6.0.min.js"></script>
+    <script src="scripts.js"></script>
   </head>
   <body>
      <div class="disclamer">Не крути экран!!!!</div>
@@ -12,13 +14,13 @@
          <div class="time">23:59</div>
          <div class="battery">15%</div>
        </div>
-       <div class="main_btn">
+       <div class="main_btn" id="mb">
           <div class="circle"></div>
           <img src="./src/img/Lamp.png" alt="Светильник">
           <div class="main_btn_text">
             <p>ON</p>
           </div>
-          <a href="#" class="link"></a>
+          <a href="#" class="link" onclick="ChangeState('mb')" oncontextmenu="return menu(event);"></a>
        </div>
        <div class="list">
        <div class="btn_list">
@@ -27,13 +29,11 @@
                 <img src="./src/img/alarm.png" alt="Будильник">
                 <a href="#" class="link"></a>
             </div>
-            <div class="btn">
+            <div class="btn" id="speaker_btn" onclick="ChangeState(id)"  oncontextmenu="return menu(event);">
                 <div class="circle"></div>
                 <img src="./src/img/speaker.png" alt="Звук" href="#">
-                <a href="speaker.html" class="link"></a>
+                <a href="./speaker.html" class="link"></a>
             </div>
-        <!-- </div>
-        <div class="btn_list"> -->
             <div class="btn">
               <img src="./src/img/settings.png" alt="Настройки">
               <a href="#" class="link"></a>
@@ -46,5 +46,10 @@
        </div>
       </div>
      </div>
+  </div>
+  <div class="right-menu">
+    <a href="#" class="menu">Яркость лампы</a>
+    <a href="#" class="menu">Режим свечения</a>
+  </div>
   </body>
 </html>

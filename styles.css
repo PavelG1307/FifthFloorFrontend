@@ -71,7 +71,7 @@ body {
     opacity: .8;
 }
 
-.main_btn:hover .circle{
+.main_btn.active .circle{
     background-color: #619c66;
     box-shadow: 0 0 10px rgba(97,156,102,.5);
 }
@@ -113,7 +113,7 @@ body {
     position: relative;
 }
 
-.btn:hover .circle{
+.btn.active .circle{
     background-color: #619c66;
     box-shadow: 0 0 10px rgba(97,156,102,.5);
 }
@@ -135,6 +135,7 @@ body {
     height: 100%;
     left: 0;
     border-radius: 15%;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .list {
@@ -151,3 +152,27 @@ body {
     margin: auto;
 }
 }
+
+.right-menu{
+    position: fixed;
+    background-color: #393939;
+    border: 2px solid white;
+    border-radius: 0%;
+    padding: 15px;
+    font-size: 40px;
+}
+
+.menu{
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding-bottom: 4px;
+    margin: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px dotted white;
+    text-align: center;
+}
+/* .menu:last-child
+{
+    margin-bottom: 0px;
+} */
