@@ -153,10 +153,10 @@ a { -webkit-user-select: none !important; }
 .disclamer{
     display: none;
 }
-@media (min-width: 500px) {
+/* @media (min-width: 500px) {
 .container{
     max-width: 500px;
-    margin: auto;
+    margin: auto; */
 }
 .main_btn_text{
     font-size: 200%;
