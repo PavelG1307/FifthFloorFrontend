@@ -1,0 +1,26 @@
+{
+    "lamp": 8,
+    "rings": {
+        "1": {
+            "time": 1234,
+            "music": false,
+            "sunrise": true
+        }
+    },
+    "sensors": {
+        "13454": {
+            "type": 1,
+            "value": 4,
+            "time": 1223
+        },
+        "13456": {
+            "type": 1,
+            "value": 4,
+            "time": 1223
+        }
+    },
+    "speaker": 0,
+    "nightlight": false,
+    "time": "12:35",
+    "voltage": "11.2"
+}

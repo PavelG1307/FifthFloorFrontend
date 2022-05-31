@@ -20,7 +20,7 @@
             <p id="on_btn" class = "active">ON</p>
             <p id="off_btn">OFF</p>
           </div>
-          <a class="link" onclick="ChangeStateMb()" oncontextmenu="long_press(event, 'speaker.html');"></a>
+          <a class="link" onclick="ChangeStateMb()" oncontextmenu="return long_press(event, 'speaker.html');"></a>
        </div>
        <div class="list">
        <div class="btn_list">
@@ -29,7 +29,7 @@
                 <img src="./assets/src/img/alarm.png" alt="Будильник">
                 <a href="#" class="link"></a>
             </div>
-            <div class="btn" id="speaker_btn" onclick="ChangeState(id)"  oncontextmenu="long_press(event, 'speaker.html');">
+            <div class="btn" id="speaker_btn" onclick="ChangeState(id)"  oncontextmenu="return long_press(event, 'speaker.html');">
                 <div class="circle"></div>
                 <img src="./assets/src/img/speaker.png" alt="Звук" href="#">
             </div>
