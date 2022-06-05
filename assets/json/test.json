@@ -1,8 +1,14 @@
 {
+    "active": true,
     "lamp": 8,
     "rings": {
         "1": {
             "time": 1234,
+            "music": false,
+            "sunrise": true
+        },
+        "2": {
+            "time": 1236,
             "music": false,
             "sunrise": true
         }
@@ -19,8 +25,9 @@
             "time": 1223
         }
     },
+    "guard": false,
     "speaker": 0,
     "nightlight": false,
-    "time": "12:35",
-    "voltage": "11.2"
+    "time": "11:35",
+    "battery": "11.2 V"
 }
