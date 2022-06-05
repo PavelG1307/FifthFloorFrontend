@@ -14,13 +14,19 @@ var $j = jQuery.noConflict();
 function long_press(event, url) {
     event = event || window.event;
     event.cancelBubble = true;
-    // window.location.href = url;
-    GetStatus();
+    goTo(url);
     return false;
 }
 
-function GetStatus(){
+function goTo(url){
+    window.location.href = url;
+}
 
+function PutOnGuard(event){
+    event = event || window.event;
+    event.cancelBubble = true;
+    console.log("Change guard")
+    return false
 }
 
 

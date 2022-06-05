@@ -8,14 +8,14 @@
     <script src="./assets/js/scripts.js"></script>
     <script src="./assets/js/scripts_ws.js"></script>
   </head>
-  <body onload="GetStatus()">
+  <body>
      <div class="container">
        <div class="header">
-         <div id="time">23:56</div>
-         <div id="battery">15%</div>
+         <div id="time">--:--</div>
+         <div id="battery">-%</div>
        </div>
        <div class="main_btn" id="mb">
-         <div class="main_btn_container">
+         <div class="main_btn_container" onclick="ChangeStateMb()" oncontextmenu="return long_press(event, 'light_mode');">
             <div class="circle"></div>
             <img src="./assets/src/img/Lamp.png" alt="Светильник">
             <div class="main_btn_text">
@@ -23,27 +23,23 @@
               <p id="off_btn">OFF</p>
             </div>
           </div>
-          <a class="link" onclick="ChangeStateMb()" oncontextmenu="return long_press(event, 'speaker.html');"></a>
        </div>
        <div class="list">
        <div class="btn_list">
-            <div class="btn" id="alarm">
+            <div class="btn" id="alarm" onclick="goTo(alarm)">
                 <div class="circle"></div>
                 <img src="./assets/src/img/alarm.png" alt="Будильник">
-                <a href="#" class="link"></a>
             </div>
-            <div class="btn" id="speaker" onclick="ChangeState(id)"  oncontextmenu="return long_press(event, 'speaker.html');">
+            <div class="btn" id="speaker" onclick="ChangeState(id)"  oncontextmenu="return long_press(event, 'speaker');">
                 <div class="circle"></div>
-                <img src="./assets/src/img/speaker.png" alt="Звук" href="#">
+                <img src="./assets/src/img/speaker.png" alt="Звук">
             </div>
             <div class="btn">
-              <img src="./assets/src/img/settings.png" alt="Настройки">
-              <a href="#" class="link"></a>
+              <img src="./assets/src/img/settings.png" alt="Настройки" onclick="goTo('settings')">
             </div>
-            <div class="btn">
+            <div class="btn" oncontextmenu="">
                 <div class="circle"></div>
-                <img src="./assets/src/img/sensors.png" alt="Датчики">
-                <a href="#" class="link"></a>
+                <img src="./assets/src/img/sensors.png" alt="Датчики" onclick="goTo('sensors')" oncontextmenu="return PutOnGuard(event)">
             </div>
        </div>
       </div>
