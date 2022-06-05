@@ -3,7 +3,7 @@ const showpercent = true;
 
 let wsApp = (function(){
   let wsApp = {}
-  let wsUrl = "ws://fifthfloor.ddns.net:8800/"
+  let wsUrl = "wss://fifthfloor.ddns.net:8800/"
   let outputfl;
 
   let websocket;
