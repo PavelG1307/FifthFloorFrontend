@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <title>5 этаж</title>
-    <link href="./assets/css/styles.css" rel="stylesheet" />
+    <link href="./assets/css/styles.css" rel="stylesheet">
     <script src="./assets/js/jquery-3.6.0.min.js"></script>
-    <script src="./assets/js/scripts.js"></script>
+    <script src="./assets/js/scripts_index.js"></script>
     <script src="./assets/js/scripts_ws.js"></script>
   </head>
   <body>
@@ -26,20 +26,20 @@
        </div>
        <div class="list">
        <div class="btn_list">
-            <div class="btn" id="alarm" onclick="goTo(alarm)">
+            <div class="btn" id="alarm" onclick="goTo('alarm.html')">
                 <div class="circle"></div>
                 <img src="./assets/src/img/alarm.png" alt="Будильник">
             </div>
-            <div class="btn" id="speaker" onclick="ChangeState(id)"  oncontextmenu="return long_press(event, 'speaker');">
+            <div class="btn" id="speaker" onclick="ChangeState(id)"  oncontextmenu="return long_press(event, 'speaker.html');">
                 <div class="circle"></div>
                 <img src="./assets/src/img/speaker.png" alt="Звук">
             </div>
             <div class="btn">
-              <img src="./assets/src/img/settings.png" alt="Настройки" onclick="goTo('settings')">
+              <img src="./assets/src/img/settings.png" alt="Настройки" onclick="goTo('settings.html')">
             </div>
-            <div class="btn" oncontextmenu="">
+            <div class="btn" id="sensors" oncontextmenu="">
                 <div class="circle"></div>
-                <img src="./assets/src/img/sensors.png" alt="Датчики" onclick="goTo('sensors')" oncontextmenu="return PutOnGuard(event)">
+                <img src="./assets/src/img/sensors.png" alt="Датчики" onclick="goTo('sensors.html')" oncontextmenu="return PutOnGuard(event)">
             </div>
        </div>
       </div>

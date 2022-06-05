@@ -1,8 +1,9 @@
-const tokken = "TOKKEN"
+const tokken = "TOKKEN";
+const showpercent = true;
 
 let wsApp = (function(){
   let wsApp = {}
-  let wsUrl = "ws://192.168.0.101:8800/"
+  let wsUrl = "ws://fifthfloor.ddns.net:8800/"
   let outputfl;
 
   let websocket;
@@ -28,7 +29,7 @@ let wsApp = (function(){
     console.log("DISCONNECTED")
   }
   function onMessage(evt){
-    console.log(evt.data)
+    console.log("Getting data from server")
     ChangeStatus(JSON.parse(evt.data))
   }
   function onError(evt){
@@ -44,30 +45,6 @@ let wsApp = (function(){
 
 window.addEventListener("load", wsApp.init, false)
 
-function ChangeStatus(request) {
-  if (request["active"]) {
-      document.getElementById('mb').classList.value = 'main_btn active'
-  } else {
-      document.getElementById('mb').classList.value = 'main_btn yellow'
-  }
-  document.getElementById("time").innerHTML = request["time"];
-  document.getElementById("battery").innerHTML = request["battery"];
-  if (request > 0) {
-      document.getElementById('on_btn').classList.value = 'active'
-      document.getElementById('off_btn').classList.value = ''
-  } else {
-      document.getElementById('on_btn').classList.value = ''
-      document.getElementById('off_btn').classList.value = 'active'
-  }
-  if (Object.keys(request.rings).length > 0){
-      document.getElementById('alarm').classList.add('active')
-  } else {
-      document.getElementById('alarm').classList.remove('active')
-  }
-  if (request.speaker > 0) {
-      document.getElementById('speaker').classList.add('active')
-  } else {
-      document.getElementById('speaker').classList.remove('active')
-  }
-};
-
+function goTo(url){
+  window.location.href = url;
+}
