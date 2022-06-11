@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap');
 
 * {
     padding: 0;
@@ -14,16 +17,113 @@ body {
     background: url('../src/img/bg.jpg') top left/1280px 720px repeat;
     font-family: 'Montserrat', sans-serif;
     -webkit-touch-callout: none !important;
-    /* background-color: #393939; */
+    color: white;
 }
 
 a { -webkit-user-select: none !important; }
 
 .container{
+    display: flex;
+    flex-wrap: wrap;
     width: 100%;
-    height: 100%;
-    /* max-height: 100px ; */
-    /* max-width: 500px; */
     margin: 0;
+}
+
+.header{
+    display: flex;
+    width: 100%;
+    height: 7%;
+    justify-content: center;
+    align-items: center;
+    font-size: 7vw;
+    font-weight: 400;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,.5);
+    background-color: #5b5b5b;
+    font-family: 'Roboto', sans-serif;
+}
+
+.back{
+    position: absolute;
+    left: 7%;
+    font-size: 12vw;
+    font-weight: 100;
+    cursor: pointer;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0;
+}
+
+.alarm{
+    position: relative;
+    width: 25vw;
+    margin: 5vh 0 0 5vw;
+    background-color: #5b5b5b;
+    box-shadow: 5px 5px 50px rgba(0,0,0,.5);
+    aspect-ratio: 1 / 1;
+    border-radius: 15%;
+    cursor: pointer;
+    outline: none;
+}
+
+.circle{
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    border-radius: 50%;
+    background-color: #9c636a;
+    box-shadow: 0 0 10px rgba(156,99,106,.5);
+    top: 10%;
+    right: 10%;
+    opacity: .8;
+}
+
+.yellow .circle{
+    background-color: #9c9261;
+    box-shadow: 0 0 10px rgba(156,146,97,.5);
+}
+
+.active .circle{
+    background-color: #619c66;
+    box-shadow: 0 0 10px rgba(97,156,102,.5);
+}
+
+.alarm_container{
+    /* background-color: rgb(255, 61, 61); */
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    outline: none;
+}
+
+.time{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 7vw;
+    font-weight: 900;
+    padding: 10%;
+}
+
+.remains{
+    position: absolute;
+    bottom: 13%;
+    width: 100%;
+    font-size: 1.7vw;
+    text-align: center;
+    font-weight: 100;
+}
+
+.sensor_container img{
+    align-self: center;
+    width: 65%;
+    padding: 7%;
+    outline: none;
 }
 

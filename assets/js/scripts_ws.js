@@ -3,18 +3,20 @@ const showpercent = true;
 
 let wsApp = (function(){
   let wsApp = {}
-  let wsUrl = "wss://fifthfloor.ddns.net:8800/"
+  // let wsUrl = "192.168.0.101:8800/"
+  let wsUrl = "localhost:8800/"
   let outputfl;
 
   let websocket;
 
   wsApp.init = function() {
     outputfl = document.getElementById("container");
-    TestWebSocket();
+    TestWebSocket('ws://' + wsUrl);
+
   }
 
-  function TestWebSocket(){
-    websocket = new WebSocket(wsUrl);
+  function TestWebSocket(url){
+    websocket = new WebSocket(url);
     websocket.onopen = onOpen;
     websocket.onclose = onClose;
     websocket.onmessage = onMessage;

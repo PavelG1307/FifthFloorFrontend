@@ -2,11 +2,26 @@
 <html>
     <head>
         <title>Будильники | 5 этаж</title>
-        <!-- <script src="./assets/js/scripts_ws.js"></script> -->
+        <script src="./assets/js/scripts_ws.js"></script>
         <script src = './assets/js/scripts_alarm.js'></script>
         <link href="./assets/css/styles_alarm.css" rel="stylesheet" />
     </head>
     <body>
-        Hi
+        <div class="header">
+            <div class="back" onclick="goTo('./')"><</div>
+            <p>Будильники</p>
+        </div>
+        <div class="container" id="container">
+            <div class="alarm">
+                <div class="alarm_container">
+                    <div class="circle"></div>
+                    <div class="time">12:00</div>
+                    <div class="remains">
+                        <p>До будильника</p>
+                        <p>15 мин.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
