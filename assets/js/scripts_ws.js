@@ -2,16 +2,17 @@ const tokken = "TOKKEN";
 const showpercent = true;
 
 let wsApp = (function(){
-  let wsApp = {}
+  const wsApp = {}
   // let wsUrl = "192.168.0.101:8800/"
-  let wsUrl = "localhost:8800/"
+  const wsUrl = "fifthfloor.ddns.net:8080"
+  const type_ws = "wss"
   let outputfl;
 
   let websocket;
 
   wsApp.init = function() {
     outputfl = document.getElementById("container");
-    TestWebSocket('ws://' + wsUrl);
+    TestWebSocket(type_ws + '://' + wsUrl);
 
   }
 
