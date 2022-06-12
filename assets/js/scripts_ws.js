@@ -4,7 +4,7 @@ const showpercent = true;
 let wsApp = (function(){
   const wsApp = {}
   // let wsUrl = "192.168.0.101:8800/"
-  const wsUrl = "fifthfloor.ddns.net:8080"
+  const wsUrl = "fifthfloor.ddns.net:80"
   const type_ws = "wss"
   let outputfl;
 
