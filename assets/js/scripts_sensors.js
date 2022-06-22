@@ -1,9 +1,10 @@
-function ChangeStatus(request) {
-    // console.log(Object.keys(request.sensors))
+function HandleMessage(request) {
     const parrent = document.getElementById("container")
     parrent.innerHTML = ""
-    for (const key in request.sensors){
-        const sens = request.sensors[key]
+    for (const key in request.modules){
+        
+        const sens = request.modules[key]
+        console.log(sens)
         const elem = document.createElement('div');
         const elem_cont = document.createElement('div');
         const elem_name = document.createElement('div');
@@ -16,7 +17,7 @@ function ChangeStatus(request) {
         let elem_value;
         if (sens["type"] == 1) {
             elem_value = document.createElement('div');
-            elem_value.appendChild(document.createTextNode(sens["value"]));
+            elem_value.appendChild(document.createTextNode(sens["last_value"]));
             elem_value.classList.value = "value"
         } else if (sens["type"] == 2) {
             elem_value = document.createElement("img");

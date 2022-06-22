@@ -43,7 +43,7 @@ function PutOnGuard(event){
     return false
 }
 
-function ChangeStatus(request) {
+function HandleMessage(request) {
     const main_btn = document.getElementById('mb').classList
     if (request["active"]) {
       main_btn.value = 'main_btn active'

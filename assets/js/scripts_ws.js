@@ -1,40 +1,53 @@
-const tokken = "TOKKEN";
+const token = document.cookie.split(';')[0].split('=')[1];
+console.log(token)
 const showpercent = true;
 
 let wsApp = (function(){
   const wsApp = {}
   // let wsUrl = "192.168.0.101:8800/"
-  const wsUrl = "fifthfloor.ddns.net:80"
-  const type_ws = "wss"
-  let outputfl;
-
+  const wsUrl = "localhost:8080"
+  const type_ws = "ws"
   let websocket;
 
   wsApp.init = function() {
-    outputfl = document.getElementById("container");
-    TestWebSocket(type_ws + '://' + wsUrl);
-
+    StartWebSocket(type_ws + '://' + wsUrl);
   }
 
-  function TestWebSocket(url){
+  function StartWebSocket(url){
     websocket = new WebSocket(url);
     websocket.onopen = onOpen;
     websocket.onclose = onClose;
     websocket.onmessage = onMessage;
     websocket.onerror = onError;
   }
+  
   function onOpen(evt){
     console.log("CONNECTED")
-    wsApp.doSend(JSON.stringify({tokken: tokken}))
+    if (token && token !='undefined'){
+      wsApp.doSend(JSON.stringify({
+        type: "CONNECTED",
+        token: token
+      }))
+    } else {
+      goTo("signin.html")
+    }
   }
+
   function onClose(evt){
     document.getElementById('mb').classList.value = 'main_btn'
     console.log("DISCONNECTED")
   }
+
   function onMessage(evt){
-    console.log("Getting data from server")
-    ChangeStatus(JSON.parse(evt.data))
+    const message = JSON.parse(evt.data)
+    console.log(`Getting data: ${evt.data}`)
+    if (message.error) {
+      errorHandler(message.error)
+      return
+    }
+    HandleMessage(message)
   }
+
   function onError(evt){
     console.log(evt.data)
   }
@@ -46,8 +59,27 @@ let wsApp = (function(){
   return wsApp
 })();
 
+function errorHandler(error) {
+  switch (error) {
+    case "Token invalid":
+      console.log("Tokken invalid")
+      // gocument.cookie = "token=undefined"
+      goTo('signin.html')
+      break
+    
+    case "Station not found":
+      goTo('new_station.html')
+      break
+
+    default:
+      console.log('error')
+  }
+}
+
 window.addEventListener("load", wsApp.init, false)
 
 function goTo(url){
-  window.location.href = url;
+  if (window.location.pathname != '/fifth_floor/' + url){
+    window.location.href = url;
+  }
 }
