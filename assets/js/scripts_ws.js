@@ -5,7 +5,7 @@ const showpercent = true;
 let wsApp = (function(){
   const wsApp = {}
   // let wsUrl = "192.168.0.101:8800/"
-  const wsUrl = "localhost:8080"
+  const wsUrl = "fifthfloor.site:8080"
   const type_ws = "ws"
   let websocket;
 
@@ -79,7 +79,9 @@ function errorHandler(error) {
 window.addEventListener("load", wsApp.init, false)
 
 function goTo(url){
-  if (window.location.pathname != '/fifth_floor/' + url){
-    window.location.href = url;
+  if (window.location.pathname == "/" + url){} else {
+	console.log(window.location.pathname)
+	console.log('/'+ url)
+	window.location.href = url;
   }
 }

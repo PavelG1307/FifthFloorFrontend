@@ -8,5 +8,7 @@ function AddDevice() {
 }
 
 function HandleMessage(message) {
-    goTo('./')
+    if (!message.error) {
+	window.location.href = './'
+    }
 }
