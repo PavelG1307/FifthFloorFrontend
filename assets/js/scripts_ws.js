@@ -1,4 +1,4 @@
-const token = document.cookie.split(';')[0].split('=')[1];
+const token = getCook('token')
 console.log(token)
 const showpercent = true;
 
@@ -83,4 +83,11 @@ function goTo(url){
 	console.log('/'+ url)
 	window.location.href = url;
   }
+}
+
+function getCook(cookiename) 
+  {
+  // Get name followed by anything except a semicolon
+  let cookiestring=RegExp(cookiename+"=[^;]+").exec(document.cookie);
+  return decodeURIComponent(!!cookiestring ? cookiestring.toString().replace(/^[^=]+./,"") : "");
 }
