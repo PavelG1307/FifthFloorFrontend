@@ -28,7 +28,7 @@ let wsApp = (function(){
         token: token
       }))
     } else {
-      // goTo("signin.html")
+      goTo("signin.html")
     }
   }
 
@@ -63,7 +63,7 @@ function errorHandler(error) {
     case "Token invalid":
       console.log("Tokken invalid")
       // gocument.cookie = "token=undefined"
-      // goTo('signin.html')
+      goTo('signin.html')
       break
     
     case "Station not found":
@@ -87,7 +87,6 @@ function goTo(url){
 
 function getCook(cookiename) 
   {
-  // Get name followed by anything except a semicolon
   let cookiestring=RegExp(cookiename+"=[^;]+").exec(document.cookie);
   return decodeURIComponent(!!cookiestring ? cookiestring.toString().replace(/^[^=]+./,"") : "");
 }
