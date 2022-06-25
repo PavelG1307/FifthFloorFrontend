@@ -4,7 +4,6 @@ const showpercent = true;
 
 let wsApp = (function(){
   const wsApp = {}
-  // let wsUrl = "192.168.0.101:8800/"
   const wsUrl = document.location.hostname + "/api"
   const type_ws = "ws"
   let websocket;
@@ -29,7 +28,7 @@ let wsApp = (function(){
         token: token
       }))
     } else {
-      goTo("signin.html")
+      // goTo("signin.html")
     }
   }
 
