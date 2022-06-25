@@ -63,7 +63,7 @@ function errorHandler(error) {
     case "Token invalid":
       console.log("Tokken invalid")
       // gocument.cookie = "token=undefined"
-      goTo('signin.html')
+      // goTo('signin.html')
       break
     
     case "Station not found":
