@@ -28,6 +28,7 @@ function ChangeMode(){
 }
 
 function HandleMessage(message) {
+  console.log('save tokken')
   document.cookie = `token=${message.token}; max-age=3600`
-  window.location.href = './'
+  // window.location.href = './'
 }
