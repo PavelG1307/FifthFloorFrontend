@@ -5,7 +5,7 @@ const showpercent = true;
 let wsApp = (function(){
   const wsApp = {}
   const wsUrl = document.location.hostname + "/api"
-  const type_ws = "ws"
+  const type_ws = "wss"
   let websocket;
 
   wsApp.init = function() {
