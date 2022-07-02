@@ -2,7 +2,6 @@ function HandleMessage(request) {
     const parrent = document.getElementById("container")
     parrent.innerHTML = ""
     for (const key in request.modules){
-        
         const sens = request.modules[key]
         console.log(sens)
         const elem = document.createElement('div');
@@ -22,10 +21,10 @@ function HandleMessage(request) {
         } else if (sens["type"] == 2) {
             elem_value = document.createElement("img");
             elem_value.setAttribute("src", "./assets/src/img/sensors.png");
-        } else if (sens["type"] == 3) {
+        } else if (sens["type"] == 10) {
             elem_value = document.createElement("img");
             elem_value.setAttribute("src", "./assets/src/img/door.png");
-        } else if (sens["type"] == 10) {
+        } else if (sens["type"] == 20) {
             elem_value = document.createElement("img");
             elem_value.setAttribute("src", "./assets/src/img/plug.png");
         } else {
