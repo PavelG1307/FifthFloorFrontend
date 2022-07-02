@@ -22,7 +22,8 @@ function ChangeStateMb(){
         off_el.value = 'active'
     }
     wsApp.doSend(JSON.stringify({
-        btignthess: stat.light
+        btignthess: stat.light,
+        token: ''
     }))
 }
 
