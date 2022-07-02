@@ -11,7 +11,7 @@ function SignIn() {
       email: "test@yandex.ru",
       phone_number: "88005553535"
     };
-    wsApp.doSend(JSON.stringify(json_data));
+    wsApp.doSend(json_data);
   }
 
 function ChangeMode(){

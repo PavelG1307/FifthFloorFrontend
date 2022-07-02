@@ -21,10 +21,9 @@ function ChangeStateMb(){
         on_el.value = ''
         off_el.value = 'active'
     }
-    wsApp.doSend(JSON.stringify({
-        btignthess: stat.light,
-        token: ''
-    }))
+    wsApp.doSend({
+        btignthess: stat.light
+    })
 }
 
 var $j = jQuery.noConflict();
