@@ -15,11 +15,11 @@ function ChangeStateMb(){
     const on_el = document.getElementById('on_btn').classList
     const off_el = document.getElementById('off_btn').classList
     if (stat.light){
-        on_el.value = 'active'
-        off_el.value = ''
-    } else {
         on_el.value = ''
         off_el.value = 'active'
+    } else {
+        on_el.value = 'active'
+        off_el.value = ''
     }
     wsApp.doSend({
         type: "SET BRIGHTNESS",
@@ -54,11 +54,11 @@ function HandleMessage(request) {
         document.getElementById("time").innerHTML = IntTimeToStr(request["time"]);
         document.getElementById("battery").innerHTML = BatteryCharge(request["battery"]);
         if (request.lamp == 0) {
-            stat.light = true
+            stat.light = false
             document.getElementById('on_btn').classList.value = 'active'
             document.getElementById('off_btn').classList.value = ''
         } else {
-            stat.light = false
+            stat.light = true
             document.getElementById('on_btn').classList.value = ''
             document.getElementById('off_btn').classList.value = 'active'
         }
