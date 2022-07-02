@@ -23,7 +23,7 @@ function ChangeStateMb(){
     }
     wsApp.doSend(JSON.stringify({
         tokken: tokken,
-        light: stat.light
+        btignthess: stat.light
     }))
 }
 
