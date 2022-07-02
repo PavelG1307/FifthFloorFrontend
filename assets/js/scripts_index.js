@@ -93,7 +93,7 @@ return `${hours}:${minutes}`
 
 function BatteryCharge(val) {
 if (showpercent) {
-    return String(Math.floor((val - 6)/(8.2 - 6)*100)) + '%';
+    return String(Math.floor((val - 6)/(8.2 - 6))) + '%';
 } else {
     return String(val) + 'V';
 }
