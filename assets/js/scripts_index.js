@@ -22,7 +22,7 @@ function ChangeStateMb(){
         off_el.value = 'active'
     }
     wsApp.doSend({
-        btignthess: stat.light
+        brignthess: stat.light
     })
 }
 
