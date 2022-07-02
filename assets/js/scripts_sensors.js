@@ -24,7 +24,7 @@ function HandleMessage(request) {
         } else if (sens["type"] == 10) {
             elem_value = document.createElement("img");
             elem_value.setAttribute("src", "./assets/src/img/door.png");
-        } else if (sens["type"] == 20) {
+        } else if (sens["type"] == 11) {
             elem_value = document.createElement("img");
             elem_value.setAttribute("src", "./assets/src/img/plug.png");
         } else {
