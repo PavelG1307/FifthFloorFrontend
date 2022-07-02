@@ -52,7 +52,8 @@ let wsApp = (function(){
 
   wsApp.doSend = function(message){
     
-    message['token'] = token
+    message.token = token
+    console.log(message.token)
     websocket.send(message)
     console.log('Send ' + message);
   }
