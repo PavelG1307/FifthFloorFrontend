@@ -24,8 +24,7 @@ let wsApp = (function(){
     console.log("CONNECTED")
     if (token && token !='undefined'){
       wsApp.doSend(JSON.stringify({
-        type: "CONNECTED",
-        token: token
+        type: "CONNECTED"
       }))
     } else {
       goTo("signin.html")
@@ -53,6 +52,7 @@ let wsApp = (function(){
 
   wsApp.doSend = function(message){
     console.log('Send ' + message);
+    message.token = token
     websocket.send(message)
   }
   return wsApp

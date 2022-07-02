@@ -22,7 +22,6 @@ function ChangeStateMb(){
         off_el.value = 'active'
     }
     wsApp.doSend(JSON.stringify({
-        tokken: tokken,
         btignthess: stat.light
     }))
 }
