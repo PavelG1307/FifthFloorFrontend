@@ -53,7 +53,7 @@ let wsApp = (function(){
   wsApp.doSend = function(message){
     message.token = token
     websocket.send(message)
-    console.log('Send ' + data);
+    console.log('Send ' + message);
   }
   return wsApp
 })();
