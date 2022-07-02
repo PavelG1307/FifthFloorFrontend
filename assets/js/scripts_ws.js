@@ -51,10 +51,8 @@ let wsApp = (function(){
   }
 
   wsApp.doSend = function(message){
-    const data = {}
-    data.push(message)
-    data.token = token
-    websocket.send(data)
+    message.token = token
+    websocket.send(message)
     console.log('Send ' + data);
   }
   return wsApp
