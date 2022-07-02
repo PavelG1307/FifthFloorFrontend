@@ -44,7 +44,7 @@ function PutOnGuard(event){
 }
 
 function HandleMessage(request) {
-    if request["type"] == "status"{
+    if (request["type"] == "status") {
         const main_btn = document.getElementById('mb').classList
         if (request["active"]) {
         main_btn.value = 'main_btn active'
