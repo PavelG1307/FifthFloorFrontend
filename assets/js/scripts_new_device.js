@@ -1,9 +1,8 @@
 function AddDevice() {
-    wsApp.doSend(JSON.stringify({
-        token: token,
+    wsApp.doSend({
         type: "ADD STATION",
         key: "djakdfjaskd"
-    }))
+    })
     console.log('Add')
 }
 

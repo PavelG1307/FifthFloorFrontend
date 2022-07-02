@@ -23,7 +23,7 @@ function ChangeStateMb(){
     }
     wsApp.doSend({
         type: "SET BRIGHTNESS",
-        brignthess: stat.light
+        brightness: stat.light
     })
 }
 
