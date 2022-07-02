@@ -53,7 +53,7 @@ function HandleMessage(request) {
         }
         document.getElementById("time").innerHTML = IntTimeToStr(request["time"]);
         document.getElementById("battery").innerHTML = BatteryCharge(request["battery"]);
-        if (request > 0) {
+        if (request.lamp > 0) {
             stat.light = true
             document.getElementById('on_btn').classList.value = 'active'
             document.getElementById('off_btn').classList.value = ''
