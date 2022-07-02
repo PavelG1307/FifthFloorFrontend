@@ -51,11 +51,10 @@ let wsApp = (function(){
   }
 
   wsApp.doSend = function(message){
-    
-    message.token = token
-    console.log(message.token)
-    websocket.send(message)
-    console.log('Send ' + message);
+    const data = message
+    data.token = token
+    websocket.send(data)
+    console.log('Send ' + data);
   }
   return wsApp
 })();
