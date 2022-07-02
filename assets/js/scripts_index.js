@@ -22,6 +22,7 @@ function ChangeStateMb(){
         off_el.value = 'active'
     }
     wsApp.doSend({
+        type: "SET BRIGHTNESS",
         brignthess: stat.light
     })
 }
