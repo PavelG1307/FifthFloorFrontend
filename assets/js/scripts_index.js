@@ -98,9 +98,14 @@ function HandleMessage(request) {
         }
     } else if (request.type === 'guard') {
         if (request.message === 'Success') {
+            if (request.state) {
+                data = 'Успешная постановка на охрану'
+            } else {
+                data = 'Успешное снятие с охраны'
+            }
             new Toast({
                 title: false,
-                text: 'Успешная постановка на охрану',
+                text: data,
                 theme: 'light',
                 autohide: true,
                 interval: 10000
