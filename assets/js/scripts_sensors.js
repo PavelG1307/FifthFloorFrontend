@@ -28,7 +28,7 @@ function HandleMessage(request) {
             elem_value = document.createElement("img");
             elem_value.setAttribute("src", "./assets/src/img/plug.png");
         } else {
-            console.log('Ошибка')
+            console.log('Ошибка, тип ', sens["type"])
             return
         }
         const elem_location = document.createElement('div');
