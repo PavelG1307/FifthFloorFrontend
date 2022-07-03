@@ -63,7 +63,7 @@ function changeStatus(id) {
     btn_module = document.getElementById('158').classList
     btn_module.toggle('active')
     wsApp.doSend({
-        type: "UPDATE MODULE",
+        type: "SET MODULE",
         module: id,
         state: btn_module.contains('active')
     })
