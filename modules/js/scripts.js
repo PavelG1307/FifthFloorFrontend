@@ -72,5 +72,5 @@ function changeStatus(id) {
 }
 
 function openSettings(id) {
-    window.location.href = './setings'
+    window.location.href = `./setings.html?id=${id}`
 }
