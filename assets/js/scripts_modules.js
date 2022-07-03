@@ -13,6 +13,7 @@ function HandleMessage(request) {
                 elem.setAttribute("onclick", "openSettings(id)")
             } else {
                 elem.setAttribute("onclick", "changeStatus(id)")
+                elem.setAttribute("oncontextmenu", `return long_press(event,${sens.id_module})`)
             }
             let elem_value;
             if (sens["type"] < 10) {
@@ -73,4 +74,11 @@ function changeStatus(id) {
 
 function openSettings(id) {
     window.location.href = `./setings.html?id=${id}`
+}
+
+function long_press(event, id) {
+    event = event || window.event;
+    event.cancelBubble = true;
+    changeStatus(id)
+    return false;
 }
