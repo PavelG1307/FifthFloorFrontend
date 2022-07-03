@@ -60,8 +60,12 @@ function HandleMessage(request) {
 }
 
 function changeStatus(id) {
-    document.getElementById(id).classList.toggle('active')
-
+    btn_module = document.querySelector('#' + id).classList
+    btn_module.toggle('active')
+    wsApp.doSend({
+        module: id,
+        state: btn_module.contains('active')
+    })
 }
 
 function openSettings(id) {
