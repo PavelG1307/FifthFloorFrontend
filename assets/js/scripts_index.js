@@ -96,6 +96,24 @@ function HandleMessage(request) {
             stat.guard = false
             sensors.value = 'btn yellow'
         }
+    } else if (request.type === 'guard') {
+        if (request.message === 'Success') {
+            new Toast({
+                title: false,
+                text: 'Успешная постановка на охрану',
+                theme: 'light',
+                autohide: true,
+                interval: 10000
+              });
+        } else {
+            new Toast({
+                title: false,
+                text: 'Ошибка',
+                theme: 'light',
+                autohide: true,
+                interval: 10000
+              });
+        }
     }
 };
 
