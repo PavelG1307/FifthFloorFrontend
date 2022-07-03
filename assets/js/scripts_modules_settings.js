@@ -3,11 +3,11 @@ const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id')
 
 function HandleMessage(request) {
-    request.modules.array.forEach(element => {
-        if (id == id_module) {
+    for (const key in request.modules){
+        if (request.modules[key].id_module == id) {
             console.log('adfadfad')
         }
-    });
+    }
     console.log(request.modules.id.name)
     console.log(request.modules.id.room)
 }
