@@ -14,17 +14,17 @@ function HandleMessage(request) {
             elem.setAttribute("onclick", "changeStatus(id)")
         }
         let elem_value;
-        if (sens["type"] == 1) {
+        if (sens["type"] <= 10) {
             elem_value = document.createElement('div');
             elem_value.appendChild(document.createTextNode(sens["last_value"]));
             elem_value.classList.value = "value"
-        } else if (sens["type"] == 2) {
-            elem_value = document.createElement("img");
-            elem_value.setAttribute("src", "./assets/src/img/sensors.png");
-        } else if (sens["type"] == 10) {
+        } else if (sens["type"] == 11) {
             elem_value = document.createElement("img");
             elem_value.setAttribute("src", "./assets/src/img/door.png");
-        } else if (sens["type"] == 11) {
+        } else if (sens["type"] < 20) {
+            elem_value = document.createElement("img");
+            elem_value.setAttribute("src", "./assets/src/img/sensors.png");
+        } else if (sens["type"] < 30) {
             elem_value = document.createElement("img");
             elem_value.setAttribute("src", "./assets/src/img/plug.png");
         } else {
