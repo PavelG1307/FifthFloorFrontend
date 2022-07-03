@@ -7,7 +7,7 @@ function HandleMessage(request) {
         const elem = document.createElement('div');
         const elem_cont = document.createElement('div');
         const elem_name = document.createElement('div');
-        elem.setAttribute("id", key);
+        elem.setAttribute("id", sens.id_module);
         if (sens["type"] < 20) {
             elem.setAttribute("onclick", "openSettings(id)")
         } else {
@@ -61,6 +61,7 @@ function HandleMessage(request) {
 
 function changeStatus(id) {
     document.getElementById(id).classList.toggle('active')
+
 }
 
 function openSettings(id) {
