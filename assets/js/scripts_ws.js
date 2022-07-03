@@ -27,7 +27,7 @@ let wsApp = (function(){
         type: "CONNECTED"
       })
     } else {
-      goTo("/signin.html")
+      goTo("../signin.html")
     }
   }
 
