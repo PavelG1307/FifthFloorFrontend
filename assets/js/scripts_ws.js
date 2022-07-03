@@ -34,6 +34,7 @@ let wsApp = (function(){
   function onClose(evt){
     document.getElementById('mb').classList.value = 'main_btn'
     console.log("DISCONNECTED")
+    setTimeout(function(){StartWebSocket(url)})
   }
 
   function onMessage(evt){
