@@ -80,7 +80,7 @@ window.addEventListener("load", wsApp.init, false)
 
 function goTo(url){
   if (window.location.pathname == "/" + url){} else {
-	window.location.href = document.location.origin + '+' + url;
+	window.location.href = document.location.origin + '/' + url;
   }
 }
 
