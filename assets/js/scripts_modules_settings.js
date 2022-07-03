@@ -2,11 +2,14 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id')
 
+const el_name = document.querySelector('#name')
+const el_loc = document.querySelector('#room')
+
 function HandleMessage(request) {
     for (const key in request.modules){
         if (request.modules[key].id_module == id) {
-            document.querySelector('#name').setAttribute('value', request.modules[key].name)
-            document.querySelector('#room').setAttribute('value', request.modules[key].location)
+            el_name.setAttribute('value', request.modules[key].name)
+            el_loc.setAttribute('value', request.modules[key].location)
             break
         }
     }
@@ -14,7 +17,13 @@ function HandleMessage(request) {
 
 function save() {
     console.log('Save')
-    wsApp.doSend()
+    document.querySelector('#nam')
+    wsApp.doSend({
+        type: 'UPDATE MODULE',
+        module: id,
+        name: el_name.value,
+        location: el_loc.value
+    })
 }
 
 function del() {
