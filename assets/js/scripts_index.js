@@ -79,8 +79,10 @@ function HandleMessage(request) {
     
         const speaker = document.getElementById('speaker').classList
         if (request.speaker > 0) {
+            stat.speaker = true
             speaker.add('active')
         } else {
+            stat.speaker = false
             speaker.remove('active')
         }
         const sensors = document.getElementById('sensors').classList
