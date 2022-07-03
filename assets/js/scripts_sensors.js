@@ -20,13 +20,13 @@ function HandleMessage(request) {
             elem_value.classList.value = "value"
         } else if (sens["type"] == 11) {
             elem_value = document.createElement("img");
-            elem_value.setAttribute("src", "./assets/src/img/door.png");
+            elem_value.setAttribute("src", "../assets/src/img/door.png");
         } else if (sens["type"] < 20) {
             elem_value = document.createElement("img");
-            elem_value.setAttribute("src", "./assets/src/img/sensors.png");
+            elem_value.setAttribute("src", "../assets/src/img/sensors.png");
         } else if (sens["type"] < 30) {
             elem_value = document.createElement("img");
-            elem_value.setAttribute("src", "./assets/src/img/plug.png");
+            elem_value.setAttribute("src", "../assets/src/img/plug.png");
         } else {
             console.log('Ошибка, тип ', sens["type"])
             return
@@ -70,5 +70,5 @@ function changeStatus(id) {
 }
 
 function openSettings(id) {
-
+    window.location.href = './setings'
 }
