@@ -8,6 +8,13 @@ const stat = {
 
 function ChangeState(id){
     document.getElementById(id).classList.toggle('active')
+    if (id == 'speaker') {
+        stat.speaker = !stat.speaker
+        wsApp.doSend({
+            type: "SET SPEAKER",
+            volume: stat.speaker
+        })
+    }
 }
 
 function ChangeStateMb(){
