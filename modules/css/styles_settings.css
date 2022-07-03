@@ -11,7 +11,7 @@ input{
     margin-top: 20%;
     width: 70%;
     text-align: center;
-    color: #fff;
+    color: rgb(118, 118, 118);
     font-size: 300%;
 }
 
@@ -20,7 +20,7 @@ input{
     height: 5vh;
     margin-top: 20%;
     font-size: 300%;
-    color: #fff;
+    color: rgb(93, 93, 93);
     background-color: #269900;
 }
 
