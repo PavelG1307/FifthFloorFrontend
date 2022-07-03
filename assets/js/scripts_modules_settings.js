@@ -13,7 +13,7 @@ function HandleMessage(request) {
         }
     } else {
         if (request.message == "Success") {
-            document.location.href = '../'
+            document.location.href = './'
         }
     }
 }
