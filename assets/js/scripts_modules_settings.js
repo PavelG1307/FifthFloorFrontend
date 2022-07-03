@@ -5,8 +5,8 @@ const id = urlParams.get('id')
 function HandleMessage(request) {
     for (const key in request.modules){
         if (request.modules[key].id_module == id) {
-            document.querySelector('#name').setAttribute('placeholder', request.modules[key].name)
-            document.querySelector('#room').setAttribute('placeholder', request.modules[key].location)
+            document.querySelector('#name').setAttribute('value', request.modules[key].name)
+            document.querySelector('#room').setAttribute('value', request.modules[key].location)
             break
         }
     }
