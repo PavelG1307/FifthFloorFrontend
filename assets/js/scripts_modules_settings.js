@@ -3,11 +3,17 @@ const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id')
 
 function HandleMessage(request) {
-    for (const key in request.modules){
-        if (request.modules[key].id_module == id) {
-            document.getElementById('name').setAttribute('value', request.modules[key].name)
-            document.getElementById('room').setAttribute('value', request.modules[key].location)
-            break
+    if (request.type == 'status') {
+        for (const key in request.modules){
+            if (request.modules[key].id_module == id) {
+                document.getElementById('name').setAttribute('value', request.modules[key].name)
+                document.getElementById('room').setAttribute('value', request.modules[key].location)
+                break
+            }
+        }
+    } else {
+        if (request.message == "Success") {
+            document.location.href = '../'
         }
     }
 }
