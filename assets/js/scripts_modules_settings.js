@@ -2,8 +2,8 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id')
 
-const el_name = document.querySelector('#name')
-const el_loc = document.querySelector('#room')
+const el_name = document.getElementById('name')
+const el_loc = document.getElementById('#room')
 
 function HandleMessage(request) {
     for (const key in request.modules){
