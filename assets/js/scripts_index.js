@@ -47,7 +47,7 @@ function PutOnGuard(event){
     event.cancelBubble = true;
     wsApp.doSend({
         "type": "GUARD",
-        "value": this.stat.guard
+        "value": stat.guard
     })
     console.log("Change guard")
     return false
