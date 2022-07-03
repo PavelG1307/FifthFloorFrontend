@@ -38,7 +38,7 @@ function HandleMessage(request) {
         if (sens["active"]){
             elem.classList.value = "sensor active"
         } else {
-            if (sens["type"] < 10) {
+            if (sens["type"] < 10 || (sens["type"] < 30 && sens["type"] > 20)) {
                 elem.classList.value = "sensor yellow"
             } else {
                 elem.classList.value = "sensor"
