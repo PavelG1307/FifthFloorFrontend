@@ -109,9 +109,9 @@ function HandleMessage(request) {
             new Toast({
                 title: false,
                 text: 'Ошибка',
-                theme: 'light',
+                theme: 'warning',
                 autohide: true,
-                interval: 10000
+                interval: 5000
               });
         }
     }
