@@ -14,7 +14,7 @@ function HandleMessage(request) {
             elem.setAttribute("onclick", "changeStatus(id)")
         }
         let elem_value;
-        if (sens["type"] <= 10) {
+        if (sens["type"] < 10) {
             elem_value = document.createElement('div');
             elem_value.appendChild(document.createTextNode(sens["last_value"]));
             elem_value.classList.value = "value"
