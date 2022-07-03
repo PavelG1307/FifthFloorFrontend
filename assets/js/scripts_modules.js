@@ -62,7 +62,7 @@ function HandleMessage(request) {
 }
 
 function changeStatus(id) {
-    btn_module = document.getElementById('158').classList
+    btn_module = document.getElementById(id).classList
     btn_module.toggle('active')
     wsApp.doSend({
         type: "SET MODULE",
