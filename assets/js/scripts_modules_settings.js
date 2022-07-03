@@ -8,7 +8,7 @@ const el_loc = document.getElementById('room')
 function HandleMessage(request) {
     for (const key in request.modules){
         if (request.modules[key].id_module == id) {
-            el_name.setAttribute('value', request.modules[key].name)
+            document.getElementById('name').setAttribute('value', request.modules[key].name)
             el_loc.setAttribute('value', request.modules[key].location)
             break
         }
@@ -17,7 +17,6 @@ function HandleMessage(request) {
 
 function save() {
     console.log('Save')
-    document.querySelector('#nam')
     wsApp.doSend({
         type: 'UPDATE MODULE',
         module: id,
