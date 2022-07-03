@@ -100,8 +100,12 @@ function HandleMessage(request) {
         if (request.message === 'Success') {
             if (request.state) {
                 data = 'Успешная постановка на охрану'
+                stat.guard = true
+                document.querySelector('#sensors').classList.value = 'btn active'
             } else {
                 data = 'Успешное снятие с охраны'
+                stat.guard = false
+                document.querySelector('#sensors').classList.value = 'btn yellow'
             }
             new Toast({
                 title: false,
