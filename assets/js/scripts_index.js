@@ -3,7 +3,8 @@ var oReq = new XMLHttpRequest();
 const stat = {
     "tokken": "TOKKEN2",
     "light": false,
-    "speaker": false
+    "speaker": false,
+    "guard": false
 }
 
 function ChangeState(id){
@@ -34,8 +35,6 @@ function ChangeStateMb(){
     })
 }
 
-var $j = jQuery.noConflict();
-
 function long_press(event, url) {
     event = event || window.event;
     event.cancelBubble = true;
@@ -46,6 +45,10 @@ function long_press(event, url) {
 function PutOnGuard(event){
     event = event || window.event;
     event.cancelBubble = true;
+    wsApp.doSend({
+        "type": "GUARD",
+        "value": stat.guard
+    })
     console.log("Change guard")
     return false
 }
@@ -87,8 +90,10 @@ function HandleMessage(request) {
         }
         const sensors = document.getElementById('sensors').classList
         if (request.guard){
+            stat.guard = true
             sensors.value = 'btn active';
         } else {
+            stat.guard = false
             sensors.value = 'btn yellow'
         }
     }
