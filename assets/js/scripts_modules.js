@@ -79,6 +79,6 @@ function openSettings(id) {
 function long_press(event, id) {
     event = event || window.event;
     event.cancelBubble = true;
-    changeStatus(id)
+    openSettings(id)
     return false;
 }
