@@ -4,12 +4,12 @@ const showpercent = true;
 
 let wsApp = (function(){
   const wsApp = {}
-  const wsUrl = document.location.hostname + "/api"
   const type_ws = "wss"
+  const wsUrl = type_ws + '://' + document.location.hostname + "/api"
   let websocket;
 
   wsApp.init = function() {
-    StartWebSocket(type_ws + '://' + wsUrl);
+    StartWebSocket(wsUrl);
   }
 
   function StartWebSocket(url){
@@ -34,7 +34,7 @@ let wsApp = (function(){
   function onClose(evt){
     document.getElementById('mb').classList.value = 'main_btn'
     console.log("DISCONNECTED")
-    setTimeout(function(){StartWebSocket(url)}, 1000)
+    setTimeout(function(){StartWebSocket(wsUrl)}, 1000)
   }
 
   function onMessage(evt){
