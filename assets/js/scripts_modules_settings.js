@@ -18,7 +18,7 @@ function save() {
         type: 'UPDATE MODULE',
         module: id,
         name: document.getElementById('name').value,
-        location: ocument.getElementById('room').value
+        location: document.getElementById('room').value
     })
 }
 
