@@ -8,7 +8,7 @@ function HandleMessage(request) {
         const elem_cont = document.createElement('div');
         const elem_name = document.createElement('div');
         elem.setAttribute("id", key);
-        if (sens["type"] < 10) {
+        if (sens["type"] < 20) {
             elem.setAttribute("onclick", "openSettings(id)")
         } else {
             elem.setAttribute("onclick", "changeStatus(id)")
