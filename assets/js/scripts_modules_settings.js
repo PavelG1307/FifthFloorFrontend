@@ -13,7 +13,6 @@ function HandleMessage(request) {
 }
 
 function save() {
-    console.log('Save')
     wsApp.doSend({
         type: 'UPDATE MODULE',
         module: id,
@@ -23,5 +22,8 @@ function save() {
 }
 
 function del() {
-    console.log('Delete')
+    wsApp.doSend({
+        type: 'DELETE MODULE',
+        module: id
+    })
 }
