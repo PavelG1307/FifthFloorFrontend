@@ -27,7 +27,7 @@ let wsApp = (function(){
         type: "CONNECTED"
       })
     } else {
-      goTo("../signin.html")
+      goTo("signin.html")
     }
   }
 
@@ -80,9 +80,7 @@ window.addEventListener("load", wsApp.init, false)
 
 function goTo(url){
   if (window.location.pathname == "/" + url){} else {
-	console.log(window.location.pathname)
-	console.log('/'+ url)
-	window.location.href = url;
+	window.location.href = document.location.origin + '+' + url;
   }
 }
 
