@@ -5,11 +5,11 @@ const id = urlParams.get('id')
 function HandleMessage(request) {
     for (const key in request.modules){
         if (request.modules[key].id_module == id) {
-            console.log('adfadfad')
+            document.querySelector('#name').setAttribute('placeholder', request.modules[key].name)
+            document.querySelector('#room').setAttribute('placeholder', request.modules[key].room)
+            break
         }
     }
-    console.log(request.modules.id.name)
-    console.log(request.modules.id.room)
 }
 
 function save() {
