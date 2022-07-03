@@ -5,8 +5,9 @@
         <title>Настройка модуля | 5 этаж</title>
         <link rel="shortcut icon" href="./assets/src/img/favicon.ico" type="image/x-icon">
         <script src="../assets/js/scripts_ws.js"></script>
-        <script src = './js/scripts.js'></script>
+        <script src = '../assets/js/scripts_modules_settings.js'></script>
         <link href="./css/styles.css" rel="stylesheet" />
+        <link href="./css/styles_settings.css" rel="stylesheet" />
     </head>
     <body>
         <div class="header">
@@ -14,6 +15,10 @@
             <p>Настройки</p>
         </div>
         <div class="container" id="container">
+            <input type="text" placeholder="Название">
+            <input type="text" placeholder="Комната">
+            <button id="btn_save" onclick="save()">Сохранить</button>
+            <button id="btn_delete" onclick="del()">Удалить</button>
         </div>
     </body>
 </html>
