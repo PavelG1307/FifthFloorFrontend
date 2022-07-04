@@ -6,8 +6,7 @@ function HandleMessage(req) {
     for (key in req.rings) {
         console.log('.')
         if (req.rings[key].id == id) {
-            console.log('sdfsdc')
-            const ring = req.ring[key]
+            const ring = req.rings[key]
             document.querySelector('#time').value = IntTimeToStr(ring.time)
             document.querySelector('#active').value = ring.active
             document.querySelector('#sunrise').value = ring.sunrise
