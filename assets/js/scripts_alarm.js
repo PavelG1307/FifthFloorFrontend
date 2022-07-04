@@ -12,7 +12,7 @@ function HandleMessage(request){
             container.insertAdjacentHTML('beforeend', ring_el)
         }
     } else if (req.type == 'SAVE RING') {
-        toast(req.state?"Будильник включен":"Будильник выключен")
+        toast(request.state?"Будильник включен":"Будильник выключен")
     }
 }
 
