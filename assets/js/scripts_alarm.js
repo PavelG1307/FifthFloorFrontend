@@ -19,7 +19,6 @@ function timeLeft(time) {
     } else {
         time_left = time_now - time + 1440
     }
-    console.log(time_left)
     if (time_left < 60) {
         return `${time_left} мин.`
     } else {
