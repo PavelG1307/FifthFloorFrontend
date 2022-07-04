@@ -3,7 +3,7 @@ let mode_sign_in = true
 function SignIn() {
     var login = document.querySelector('#login').value;
     var password = document.getElementById("password").value;
-    if (login!="" || password!=""){
+    if (login=="" || password==""){
       error('Введите логин и пароль')
       return
     }
