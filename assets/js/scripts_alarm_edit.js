@@ -16,6 +16,7 @@ function HandleMessage(req) {
 
 function save() {
     const time = document.querySelector('#time').value
+    
     const active = document.querySelector('#active').value
     const sunrise = document.querySelector('#sunrise').value
     const music = document.querySelector('#music').value
@@ -26,7 +27,7 @@ function save() {
     }
     wsApp.doSend({
         type: type,
-        time: time,
+        time: StrTimeToInt(time),
         active: active,
         sunrise: sunrise,
         music: music,
@@ -42,6 +43,10 @@ function error(){
         autohide: true,
         interval: 5000
       });
+}
+
+function StrTimeToInt(strTime) {
+    return Number(strTime.split(':')[0])*60+Number(strTime.split(':')[1])
 }
 
 function IntTimeToStr(intTime) {
