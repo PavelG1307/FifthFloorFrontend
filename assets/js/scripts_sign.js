@@ -7,6 +7,7 @@ function SignIn() {
       error('Введите логин и пароль')
       return
     }
+
     console.log('Логин ', login, ' пароль ', password);
     const json_data = {
       type: mode_sign_in ? "SIGN IN" : "REGISTRATION",
@@ -31,6 +32,11 @@ function ChangeMode(){
   }
 }
 
+
+function UserError(){
+  error('Логин и/или пароль указаны неверно')
+}
+
 function HandleMessage(message) {
   document.cookie = `token=${message.token}; max-age=3600`
   window.location.href = './'
@@ -42,6 +48,6 @@ function error(text){
       text: text,
       theme: 'warning',
       autohide: true,
-      interval: 5000
+      interval: 2000
     });
 }

@@ -66,7 +66,10 @@ function errorHandler(error) {
       // gocument.cookie = "token=undefined"
       goTo('signin.html')
       break
-    
+    case "USER NOT FOUND":
+      UserError()
+      break
+      
     case "Station not found":
       goTo('new_station.html')
       break
