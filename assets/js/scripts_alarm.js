@@ -15,9 +15,9 @@ function timeLeft(time) {
     const time_now = date.getHours()*60 + date.getMinutes()
     let time_left
     if (time_now < time) {
-        time_left = time_now - time
+        time_left = time - time_now
     } else {
-        time_left = time - time_now + 1440
+        time_left = time_now - time + 1440
     }
     if (time_left < 60) {
         return `${time_left} мин.`
