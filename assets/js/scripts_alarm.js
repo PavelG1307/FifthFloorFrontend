@@ -1,6 +1,6 @@
 function HandleMessage(request){
     const container = document.getElementsByClassName('container')[0]
-    container.innerHTML("")
+    container.innerHTML = ""
     for (key in request.rings) {
         const ring = request.rings[key]
         const {id,time, active} = ring
