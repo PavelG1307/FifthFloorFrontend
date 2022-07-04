@@ -31,7 +31,7 @@ function save() {
         active: active,
         sunrise: sunrise,
         music: music,
-        id: id
+        id: Number(id)
     })
 }
 
@@ -46,8 +46,6 @@ function error(){
 }
 
 function StrTimeToInt(strTime) {
-    console.log(Number(strTime.split(':')[0]))
-    console.log(Number(strTime.split(':')[1]))
     return Number(strTime.split(':')[0])*60+Number(strTime.split(':')[1])
 }
 
