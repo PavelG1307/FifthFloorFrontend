@@ -21,7 +21,8 @@ function save() {
         time: time,
         active: active,
         sunrise: sunrise,
-        music: music
+        music: music,
+        id: id
     })
 }
 
