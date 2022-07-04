@@ -67,7 +67,7 @@ function errorHandler(error) {
       goTo('signin.html')
       break
     case "USER NOT FOUND":
-      UserError()
+      error('Логин и/или пароль указаны неверно')
       break
       
     case "Station not found":

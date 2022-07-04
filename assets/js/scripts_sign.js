@@ -7,6 +7,10 @@ function SignIn() {
       error('Введите логин и пароль')
       return
     }
+    if (!mode_sign_in && password.length<8){
+      error('Слишком короткий пароль')
+      return
+    }
 
     console.log('Логин ', login, ' пароль ', password);
     const json_data = {
@@ -20,6 +24,7 @@ function SignIn() {
   }
 
 function ChangeMode(){
+
   const button_change = document.querySelector('#but_login')
   const button = document.querySelector('button')
   mode_sign_in = !mode_sign_in
@@ -30,11 +35,6 @@ function ChangeMode(){
     button_change.innerHTML = 'Регистрация'
     button.innerHTML = 'Вход'
   }
-}
-
-
-function UserError(){
-  error('Логин и/или пароль указаны неверно')
 }
 
 function HandleMessage(message) {
