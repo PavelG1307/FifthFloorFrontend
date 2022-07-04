@@ -38,7 +38,7 @@ div{
     margin-bottom: 10%;
     font-size: 150%;
     color: #fff;
-    background-color: #269900;
+    background-color: rgb(118, 118, 118);
 }
 
 #btn_delete{
@@ -47,5 +47,5 @@ div{
     margin-bottom: 10%;
     font-size: 150%;
     color: #fff;
-    background-color: #990000;
+    background-color: rgb(118, 118, 118);
 }
