@@ -3,6 +3,10 @@ let mode_sign_in = true
 function SignIn() {
     var login = document.querySelector('#login').value;
     var password = document.getElementById("password").value;
+    if (login!="" || password!=""){
+      error('Введите логин и пароль')
+      return
+    }
     console.log('Логин ', login, ' пароль ', password);
     const json_data = {
       type: mode_sign_in ? "SIGN IN" : "REGISTRATION",
@@ -30,4 +34,14 @@ function ChangeMode(){
 function HandleMessage(message) {
   document.cookie = `token=${message.token}; max-age=3600`
   window.location.href = './'
+}
+
+function error(text){
+  new Toast({
+      title: false,
+      text: text,
+      theme: 'warning',
+      autohide: true,
+      interval: 5000
+    });
 }
