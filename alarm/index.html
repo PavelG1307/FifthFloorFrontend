@@ -3,18 +3,19 @@
     <head>
         <meta charset="UTF-8" />
         <title>Будильники | 5 этаж</title>
-        <script src="./assets/js/scripts_ws.js"></script>
-        <script src = './assets/js/scripts_alarm.js'></script>
-        <link href="./assets/css/styles_alarm.css" rel="stylesheet" />
+        <script src="../assets/js/scripts_ws.js"></script>
+        <script src = '../assets/js/scripts_alarm.js'></script>
+        <link href="./css/styles.css" rel="stylesheet" />
     </head>
     <body>
         <div class="header">
-            <div class="back" onclick="document.location.href='/'"><</div>
+            <div class="back" onclick="document.location.href='../'"><</div>
             <p>Будильники</p>
+            <div class="add" onclick="document.location.href='./edit.html?id=new'">+</div>
         </div>
         <div class="container" id="container">
-            <div class="alarm">
-                <div class="alarm_container">
+            <div class="alarm" id="123">
+                <div class="alarm_container" onclick="document.location.href = './edit.html?id=123'">
                     <div class="circle"></div>
                     <div class="time">12:00</div>
                     <div class="remains">

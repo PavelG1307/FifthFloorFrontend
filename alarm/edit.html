@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Будильники | 5 этаж</title>
+        <script src="../assets/js/scripts_ws.js"></script>
+        <script src = '../assets/js/scripts_new.js'></script>
+        <link href="./css/styles.css" rel="stylesheet" />
+        <link href="./css/styles_new.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="header">
+            <div class="back" onclick="document.location.href='./'"><</div>
+        </div>
+        <div class="container" id="container">
+                <div class="name">Время</div>
+                <input type="time" id="time">
+                <div class="name">Вкл/Выкл</div>
+                <input type="checkbox" id="active">
+                <div class="name">Эффект рассвета</div>
+                <input type="checkbox" id="sunrise">
+                <div class="name">Музыка</div>
+                <select id="music">
+
+                    <option value=”0”>Без музыки</option>
+                    
+                    <option value=”1”>КиШ</option>
+                    
+                    <option value=”2”>Ленинград</option>
+                
+                </select>
+            <button id="btn_save" onclick="save()">Сохранить</button>
+            <button id="btn_delete" onclick="del()">Удалить</button>
+        </div>
+    </body>
+</html>

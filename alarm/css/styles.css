@@ -52,6 +52,14 @@ a { -webkit-user-select: none !important; }
     cursor: pointer;
 }
 
+.add{
+    position: absolute;
+    right: 7%;
+    font-size: 10vw;
+    font-weight: 300;
+    cursor: pointer;
+}
+
 .container{
     display: flex;
     flex-wrap: wrap;
