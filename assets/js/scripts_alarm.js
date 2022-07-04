@@ -22,7 +22,7 @@ function timeLeft(time) {
     if (time_left < 60) {
         return `${time_left} мин.`
     } else {
-        return `${Math.round(time_left/60)} ч. ${time_left%60} мин.`
+        return `${Math.floor(time_left/60)} ч. ${time_left%60} мин.`
     }
 }
 
