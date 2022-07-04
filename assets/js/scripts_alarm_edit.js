@@ -5,7 +5,7 @@ const id = urlParams.get('id')
 function HandleMessage(req) {
     for (key in req.rings) {
         console.log('.')
-        if (req.ring[key].id === id) {
+        if (req.ring[key].id == id) {
             console.log('sdfsdc')
             const ring = req.ring[key]
             document.querySelector('#time').value = IntTimeToStr(ring.time)
