@@ -15,8 +15,19 @@ function HandleMessage(req) {
         }
     } else if (req.type == 'SAVE RING') {
         toast(req.state?"Будильник включен":"Будильник выключен")
+        document.location.href = './'
     }
 }
+
+
+function del(){
+    wsApp.doSend({
+        type: "SET VISIBLE RING",
+        visible: false,
+        id: Number(id)
+    })
+}
+
 
 function save() {
     const time = document.querySelector('#time').value
@@ -56,8 +67,4 @@ function IntTimeToStr(intTime) {
     const hours = ('0' + String(Math.floor(intTime / 60))).slice(-2)
     const minutes = ('0' + String(intTime % 60)).slice(-2)
     return `${hours}:${minutes}`
-}
-
-function onClickAlarm(id) {
-    document.querySelector(`#${id}`).classList.toggle(active)
 }
