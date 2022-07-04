@@ -40,3 +40,7 @@ function long_press(event, url) {
     goTo(url);
     return false;
 }
+
+function onClickAlarm(id) {
+    document.querySelector(`#${id}`).classList.toggle(active)
+}
