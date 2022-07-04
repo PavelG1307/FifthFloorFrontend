@@ -3,8 +3,7 @@ const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id')
 
 function HandleMessage(req) {
-    console.log('//')
-    for (key in req.ring) {
+    for (key in req.rings) {
         console.log('.')
         if (req.ring[key].id === id) {
             console.log('sdfsdc')
