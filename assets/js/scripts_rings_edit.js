@@ -11,7 +11,9 @@ function save() {
     const active = document.querySelector('#active').value
     const sunrise = document.querySelector('#sunrise').value
     const music = document.querySelector('#music').value
+    const type = (id === "new")?"NEW RING":"EDIT RING"
     console.log({
+        type: type,
         time: time,
         active: active,
         sunrise: sunrise,
