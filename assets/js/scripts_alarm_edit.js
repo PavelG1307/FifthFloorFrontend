@@ -4,12 +4,11 @@ const id = urlParams.get('id')
 
 function HandleMessage(req) {
     for (key in req.rings) {
-        console.log('.')
         if (req.rings[key].id == id) {
             const ring = req.rings[key]
             document.querySelector('#time').value = IntTimeToStr(ring.time)
-            document.querySelector('#active').value = ring.active?'on':'off'
-            document.querySelector('#sunrise').value = ring.sunrise?'on':'off'
+            document.querySelector('#active').prop('checked', ring.active)
+            document.querySelector('#sunrise').prop('checked', ring.sunrise)
             document.querySelector('#music').value = ring.music
         }
     }
