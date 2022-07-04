@@ -45,7 +45,7 @@ function onClickAlarm(id) {
     const el_alarm = document.getElementById(id).classList
     el_alarm.toggle('active')
     wsApp.doSend({
-        type: type,
+        type: 'SET ACTIVE RING',
         active: el_alarm.contains('active'),
         id: id
     })
