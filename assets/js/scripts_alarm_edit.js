@@ -3,14 +3,18 @@ const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id')
 
 function HandleMessage(req) {
-    for (key in req.rings) {
-        if (req.rings[key].id == id) {
-            const ring = req.rings[key]
-            document.querySelector('#time').value = IntTimeToStr(ring.time)
-            document.querySelector('#active').checked = ring.active
-            document.querySelector('#sunrise').checked = ring.sunrise
-            document.querySelector('#music').selectedIndex = ring.music
+    if (req.type='status') {
+        for (key in req.rings) {
+            if (req.rings[key].id == id) {
+                const ring = req.rings[key]
+                document.querySelector('#time').value = IntTimeToStr(ring.time)
+                document.querySelector('#active').checked = ring.active
+                document.querySelector('#sunrise').checked = ring.sunrise
+                document.querySelector('#music').selectedIndex = ring.music
+            }
         }
+    } else if (req.type='SAVE RING') {
+        toast(req.state?"Будильник включен":"Будильник выключен")
     }
 }
 
@@ -21,7 +25,7 @@ function save() {
     const music = document.querySelector('#music').value
     const type = (id === "new")?"NEW RING":"EDIT RING"
     if (time == "") {
-        error()
+        toast('Ошибка', 'warning')
         return
     }
     wsApp.doSend({
@@ -34,11 +38,11 @@ function save() {
     })
 }
 
-function error(){
+function toast(text, theme = 'light'){
     new Toast({
         title: false,
-        text: 'Ошибка',
-        theme: 'warning',
+        text: text,
+        theme: theme,
         autohide: true,
         interval: 5000
       });
