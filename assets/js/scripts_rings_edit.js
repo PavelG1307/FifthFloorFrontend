@@ -12,6 +12,10 @@ function save() {
     const sunrise = document.querySelector('#sunrise').value
     const music = document.querySelector('#music').value
     const type = (id === "new")?"NEW RING":"EDIT RING"
+    if (time == "") {
+        error()
+        return
+    }
     wsApp.doSend({
         type: type,
         time: time,
@@ -19,4 +23,14 @@ function save() {
         sunrise: sunrise,
         music: music
     })
+}
+
+function error(){
+    new Toast({
+        title: false,
+        text: 'Ошибка',
+        theme: 'warning',
+        autohide: true,
+        interval: 5000
+      });
 }
