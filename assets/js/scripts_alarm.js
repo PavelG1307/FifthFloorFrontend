@@ -42,5 +42,11 @@ function long_press(event, url) {
 }
 
 function onClickAlarm(id) {
-    document.getElementById(id).classList.toggle('active')
+    const el_alarm = document.getElementById(id).classList
+    el_alarm.toggle('active')
+    wsApp.doSend({
+        type: type,
+        active: el_alarm.contains('active'),
+        id: id
+    })
 }
