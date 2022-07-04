@@ -12,7 +12,7 @@ function save() {
     const sunrise = document.querySelector('#sunrise').value
     const music = document.querySelector('#music').value
     const type = (id === "new")?"NEW RING":"EDIT RING"
-    console.log({
+    wsApp.doSend({
         type: type,
         time: time,
         active: active,
