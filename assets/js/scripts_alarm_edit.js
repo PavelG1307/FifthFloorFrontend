@@ -8,8 +8,8 @@ function HandleMessage(req) {
         if (req.rings[key].id == id) {
             const ring = req.rings[key]
             document.querySelector('#time').value = IntTimeToStr(ring.time)
-            document.querySelector('#active').value = ring.active
-            document.querySelector('#sunrise').value = ring.sunrise
+            document.querySelector('#active').value = ring.active?'on':'off'
+            document.querySelector('#sunrise').value = ring.sunrise?'on':'off'
             document.querySelector('#music').value = ring.music
         }
     }
