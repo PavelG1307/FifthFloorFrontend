@@ -57,3 +57,7 @@ function IntTimeToStr(intTime) {
     const minutes = ('0' + String(intTime % 60)).slice(-2)
     return `${hours}:${minutes}`
 }
+
+function onClickAlarm(id) {
+    document.querySelector(`#${id}`).classList.toggle(active)
+}
