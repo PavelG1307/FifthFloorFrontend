@@ -42,5 +42,5 @@ function long_press(event, url) {
 }
 
 function onClickAlarm(id) {
-    document.querySelector(`#${id}`).classList.toggle(active)
+    document.getElementById(`#${id}`).classList.toggle(active)
 }
