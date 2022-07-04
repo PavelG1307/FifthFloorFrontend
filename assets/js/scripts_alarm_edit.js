@@ -9,7 +9,7 @@ function HandleMessage(req) {
             document.querySelector('#time').value = IntTimeToStr(ring.time)
             document.querySelector('#active').checked = ring.active
             document.querySelector('#sunrise').checked = ring.sunrise
-            document.querySelector('#music').selectedIndex = 1
+            document.querySelector('#music').selectedIndex = ring.music
         }
     }
 }
