@@ -5,6 +5,7 @@ const id = urlParams.get('id')
 function HandleMessage(req) {
     for (key in req.rings) {
         console.log('.')
+        console.log(req.ring[key].id)
         if (req.ring[key].id == id) {
             console.log('sdfsdc')
             const ring = req.ring[key]
