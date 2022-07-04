@@ -1,14 +1,18 @@
 function HandleMessage(request){
-    const container = document.getElementsByClassName('container')[0]
-    container.innerHTML = ""
-    for (key in request.rings) {
-        const ring = request.rings[key]
-        const {id,time, active} = ring
-        const time_str = IntTimeToStr(time)
-        const time_left = timeLeft(time)
-        const class_active = active?" active":""
-        const ring_el = `<div class="alarm${class_active}" id="${id}"><div class="alarm_container" onclick="onClickAlarm(${id})" oncontextmenu="return long_press(event, 'alarm/edit.html?id=${id}')"><div class="circle"></div><div class="time">${time_str}</div><div class="remains"><p>До будильника</p><p>${time_left}</p></div></div></div>`
-        container.insertAdjacentHTML('beforeend', ring_el)
+    if (request.type=='status') {
+        const container = document.getElementsByClassName('container')[0]
+        container.innerHTML = ""
+        for (key in request.rings) {
+            const ring = request.rings[key]
+            const {id,time, active} = ring
+            const time_str = IntTimeToStr(time)
+            const time_left = timeLeft(time)
+            const class_active = active?" active":""
+            const ring_el = `<div class="alarm${class_active}" id="${id}"><div class="alarm_container" onclick="onClickAlarm(${id})" oncontextmenu="return long_press(event, 'alarm/edit.html?id=${id}')"><div class="circle"></div><div class="time">${time_str}</div><div class="remains"><p>До будильника</p><p>${time_left}</p></div></div></div>`
+            container.insertAdjacentHTML('beforeend', ring_el)
+        }
+    } else if (req.type == 'SAVE RING') {
+        toast(req.state?"Будильник включен":"Будильник выключен")
     }
 }
 
@@ -49,4 +53,14 @@ function onClickAlarm(id) {
         active: el_alarm.contains('active'),
         id: id
     })
+}
+
+function toast(text, theme = 'light'){
+    new Toast({
+        title: false,
+        text: text,
+        theme: theme,
+        autohide: true,
+        interval: 5000
+      });
 }
