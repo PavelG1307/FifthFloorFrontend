@@ -3,7 +3,7 @@ const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id')
 
 function HandleMessage(req) {
-    if (req.type='status') {
+    if (req.type == 'status') {
         for (key in req.rings) {
             if (req.rings[key].id == id) {
                 const ring = req.rings[key]
@@ -13,7 +13,7 @@ function HandleMessage(req) {
                 document.querySelector('#music').selectedIndex = ring.music
             }
         }
-    } else if (req.type='SAVE RING') {
+    } else if (req.type == 'SAVE RING') {
         toast(req.state?"Будильник включен":"Будильник выключен")
     }
 }
