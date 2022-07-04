@@ -1,11 +1,11 @@
 function HandleMessage(request){
     const container = document.getElementsByClassName('container')[0]
     for (key in request.rings) {
-        ring = request.rings[key]
+        const ring = request.rings[key]
         const {id,time, active} = ring
-        time_str = IntTimeToStr(time)
-        time_left = timeLeft(time)
-        ring_el = `<div class="alarm" id="${id}"><div class="alarm_container" onclick="document.location.href = './edit.html?id=${id}'"><div class="circle"></div><div class="time">${time_str}</div><div class="remains"><p>До будильника</p><p>${time_left} мин.</p></div></div></div>`
+        const time_str = IntTimeToStr(time)
+        const time_left = timeLeft(time)
+        const ring_el = `<div class="alarm" id="${id}"><div class="alarm_container" onclick="document.location.href = './edit.html?id=${id}'"><div class="circle"></div><div class="time">${time_str}</div><div class="remains"><p>До будильника</p><p>${time_left} мин.</p></div></div></div>`
         container.insertAdjacentHTML('beforeend', ring_el)
     }
 }
