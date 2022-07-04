@@ -30,7 +30,7 @@ function save() {
         time: StrTimeToInt(time),
         active: active,
         sunrise: sunrise,
-        music: music,
+        music: Number(music),
         id: Number(id)
     })
 }
