@@ -24,7 +24,7 @@ function SignIn() {
       method: 'get',
       url: url + '/sign',
       params: json_data
-    }).then(res => setToken(res.data.token).catch(e => console.log(e)))
+    }).then(res => setToken(res.data.token)).catch(e => console.log(e))
     // wsApp.doSend(json_data);
   }
 
