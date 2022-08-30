@@ -1,6 +1,7 @@
 let mode_sign_in = true
 
 function SignIn() {
+    const url = 'https://fifthfloor.site/api'
     var login = document.querySelector('#login').value;
     var password = document.getElementById("password").value;
     if (login=="" || password==""){
@@ -12,15 +13,14 @@ function SignIn() {
       return
     }
 
-    console.log('Логин ', login, ' пароль ', password);
     const json_data = {
-      type: mode_sign_in ? "SIGN IN" : "REGISTRATION",
       login: login,
       password: password,
       email: "test@yandex.ru",
       phone_number: "88005553535"
     };
-    wsApp.doSend(json_data);
+    console.log(axios.get(url + '/sign',json_data))
+    // wsApp.doSend(json_data);
   }
 
 function ChangeMode(){
