@@ -19,7 +19,8 @@ function SignIn() {
       email: "test@yandex.ru",
       phone_number: "88005553535"
     };
-    console.log(axios.get(url + '/sign',json_data).then(res => console.log(res).catch(e => console.log(e))))
+    console.log(json_data)
+    axios.get(url + '/sign',json_data).then(res => setToken(res.data.token).catch(e => console.log(e)))
     // wsApp.doSend(json_data);
   }
 
@@ -37,8 +38,8 @@ function ChangeMode(){
   }
 }
 
-function HandleMessage(message) {
-  document.cookie = `token=${message.token}; max-age=3600`
+function setToken(token) {
+  document.cookie = `token=${token}; max-age=3600`
   window.location.href = './'
 }
 
