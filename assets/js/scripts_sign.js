@@ -20,7 +20,11 @@ function SignIn() {
       phone_number: "88005553535"
     };
     console.log(json_data)
-    axios.get(url + '/sign',json_data).then(res => setToken(res.data.token).catch(e => console.log(e)))
+    axios({
+      method: 'get',
+      url: url + '/sign',
+      params: json_data
+    }).then(res => setToken(res.data.token).catch(e => console.log(e)))
     // wsApp.doSend(json_data);
   }
 
