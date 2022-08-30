@@ -19,7 +19,7 @@ function SignIn() {
       email: "test@yandex.ru",
       phone_number: "88005553535"
     };
-    console.log(axios.get(url + '/sign',json_data))
+    console.log(axios.get(url + '/sign',json_data).then(res => console.log(res).catch(e => console.log(e))))
     // wsApp.doSend(json_data);
   }
 
