@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500');
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap'); */
+* {
+    padding: 0;
+    margin: 0;
+  }
+   
+html, body {
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    align-content: center;
+    justify-content:space-around
+}
+
+.text {
+    width: 100%;
+    display: block;
+    /* top: 50%; */
+    text-align: center;
+}
+
+.input {
+    text-align: center;
+    font-size:2vh
+}
+
+.change{
+    font-size: 5vw;
+    color: #767676;
+}
+
+
+
+input{
+    margin-bottom: 10%;
+    height: 5vh;
+    width: 70vw;
+    font-size: 4vw;
+    background: none;
+    border: none;
+    border-bottom: solid 3px #2d2e40;
+    outline:none;
+    color: white;
+    text-align: center;
+}
+
+button{
+    width: 70vw;
+    height: 10vh;
+    display: block;
+    margin: auto;
+    background-color: #2d2e40;
+    font-size: 4vw;
+    border: none;
+    padding: 7px;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+#but_login{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.input{
+    display: flex;
+    flex-direction: column;
+}

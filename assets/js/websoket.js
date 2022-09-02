@@ -1,0 +1,54 @@
+const token = getCook('token')
+console.log(token)
+const showpercent = true;
+
+let wsApp = (function(){
+  const wsApp = {}
+  const type_ws = "wss"
+  // const wsUrl = 'ws://localhost:8080'
+  const wsUrl = type_ws + '://' + document.location.hostname + "/api"
+  let websocket;
+
+  wsApp.init = function() {
+    StartWebSocket(wsUrl);
+  }
+
+  function StartWebSocket(url){
+    websocket = new WebSocket(url);
+    websocket.onopen = onOpen;
+    websocket.onclose = onClose;
+    websocket.onmessage = onMessage;
+    websocket.onerror = onError;
+  }
+  
+  function onOpen(evt){
+    console.log("CONNECTED")
+    websocket.send(JSON.stringify({token}))
+  }
+
+  function onClose(evt){
+    document.getElementById('mb').classList.value = 'main_btn'
+    console.log("DISCONNECTED")
+    setTimeout(function(){StartWebSocket(wsUrl)}, 1000)
+  }
+
+  function onMessage(evt){
+    const message = JSON.parse(evt.data)
+    console.log(`Getting data: ${evt.data}`)
+    if (message.success) {
+      wsHandler(message)
+      return
+    }
+  }
+
+  function onError(evt){
+    console.log(evt.data)
+  }
+
+  return wsApp
+})();
+
+window.addEventListener("load", wsApp.init, false)
+
+
+

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500');
 
+/* #471f71 */
 * {
     padding: 0;
     margin: 0;
@@ -10,12 +11,11 @@ html, body {
     height: 100%;
 }
 
-body {
-    background: url('../src/img/bg.jpg') top left/1280px 720px repeat;
+/* body {
+    background: radial-gradient(circle at 150%, #471f71, #0f1219);
     font-family: 'Montserrat', sans-serif;
     -webkit-touch-callout: none !important;
-    /* background-color: #393939; */
-}
+} */
 
 a { -webkit-user-select: none !important; }
 
@@ -45,13 +45,13 @@ a { -webkit-user-select: none !important; }
 
 .main_btn{
     position: relative;
-    background-color: #5b5b5b;
+    background-color: #2d2e40;
     max-width: 43%;
     max-height: 43%;
     border-radius: 13%;
     margin: auto;
     aspect-ratio: 1 / 1;
-    box-shadow: 5px 5px 50px rgba(0,0,0,.7);
+    /* box-shadow: 5px 5px 50px rgba(0,0,0,.7); */
     margin-bottom: 12%;
 }
 
@@ -117,11 +117,11 @@ a { -webkit-user-select: none !important; }
 }
 
 .btn{
-    background-color: #5b5b5b;
+    background-color: #2d2e40;
     width: 85%;
     border-radius: 15%;
     aspect-ratio: 1 / 1;
-    box-shadow: 5px 5px 50px rgba(0,0,0,.5);
+    /* box-shadow:  5px 5px 50px rgba(0,0,0,.5); */
     margin-top: 15%;
     margin-bottom: 15%;
     position: relative;

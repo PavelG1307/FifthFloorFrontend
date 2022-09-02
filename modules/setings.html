@@ -4,12 +4,17 @@
         <meta charset="UTF-8" />
         <title>Настройка модуля | 5 этаж</title>
         <link rel="shortcut icon" href="./assets/src/img/favicon.ico" type="image/x-icon">
-        <script src="../assets/js/scripts_ws.js"></script>
-        <script src = '../assets/js/scripts_modules_settings.js'></script>
-        <link href="./css/styles.css" rel="stylesheet" />
-        <link href="./css/styles_settings.css" rel="stylesheet" />
+        <link href="../assets/css/toast.min.css" rel="stylesheet">
+        <script src="../assets/js/toast.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src = '../assets/js/utils.js'></script>
+        <script src = '../assets/js/modules_settings.js'></script>
+        <link href="./css/modules.css" rel="stylesheet" />
+        <link href="../assets/css/global.css" rel="stylesheet" />
+        <link href="./css/settings.css" rel="stylesheet" />
+
     </head>
-    <body>
+    <body onload="getModule()">
         <div class="header">
             <div class="back" onclick="goTo('modules')"><</div>
             <p>Настройки</p>

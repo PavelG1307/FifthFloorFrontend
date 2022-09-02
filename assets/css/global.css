@@ -1,0 +1,6 @@
+body {
+    background: radial-gradient(circle at 150%, #471f71, #0f1219);
+    font-family: 'Montserrat', sans-serif;
+    -webkit-touch-callout: none !important;
+    color: white;
+}

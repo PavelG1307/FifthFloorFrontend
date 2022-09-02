@@ -1,38 +1,44 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>Будильники | 5 этаж</title>
-        <script src="../assets/js/toast.min.js"></script>
-        <link href="../assets/css/toast.min.css" rel="stylesheet">
-        <script src="../assets/js/scripts_ws.js"></script>
-        <script src = '../assets/js/scripts_alarm_edit.js'></script>
-        <link href="./css/styles.css" rel="stylesheet" />
-        <link href="./css/styles_new.css" rel="stylesheet" />
-    </head>
-    <body>
-        <div class="header">
-            <div class="back" onclick="document.location.href='./'"><</div>
-        </div>
-        <div class="container" id="container">
-                <div class="name">Время</div>
-                <input type="time" id="time">
-                <div class="name">Вкл/Выкл</div>
-                <input type="checkbox" id="active">
-                <div class="name">Эффект рассвета</div>
-                <input type="checkbox" id="sunrise">
-                <div class="name">Музыка</div>
-                <select id="music">
 
-                    <option value=0>Без музыки</option>
-                    
-                    <option value=1>КиШ</option>
-                    
-                    <option value=2>Ленинград</option>
-                
-                </select>
-            <button id="btn_save" onclick="save()">Сохранить</button>
-            <button id="btn_delete" onclick="del()">Удалить</button>
-        </div>
-    </body>
+<head>
+  <meta charset="UTF-8" />
+  <title>Будильники | 5 этаж</title>
+  <link href="../assets/css/global.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link href="../assets/css/toast.min.css" rel="stylesheet">
+  <script src="../assets/js/toast.min.js"></script>
+  <script src="../assets/js/utils.js"></script>
+  <script src="../assets/js/alarm.js"></script>
+  <script src="../assets/js/alarm_edit.js"></script>
+  <link href="./css/styles.css" rel="stylesheet" />
+  <link href="./css/edit.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="header">
+    <div class="back" onclick="document.location.href='./'">< </div>
+    </div>
+    <div class="container" id="container">
+      <div class="name">Время</div>
+      <input type="time" id="time">
+      <button class="param active" id="mode" onclick="switchParam(id)">Выключить</button>
+      <button class="param" id="sunrise" onclick="switchParam(id)">Эффект рассвета</button>
+      <div class="name">Музыка</div>
+      <select id="music">
+
+        <option value=0>Без музыки</option>
+
+        <option value=1>КиШ</option>
+
+        <option value=2>Ленинград</option>
+
+      </select>
+      <div class="but">
+        <button id="btn_save" onclick="save()">Сохранить</button>
+        <button id="btn_delete" onclick="del()">Удалить</button>
+      </div>
+    </div>
+</body>
+
 </html>

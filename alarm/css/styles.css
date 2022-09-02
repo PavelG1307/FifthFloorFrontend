@@ -13,13 +13,6 @@ html, body {
     height: 100%;
 }
 
-body {
-    background: url('../src/img/bg.jpg') top left/1280px 720px repeat;
-    font-family: 'Montserrat', sans-serif;
-    -webkit-touch-callout: none !important;
-    color: white;
-}
-
 a { -webkit-user-select: none !important; }
 
 .container{
@@ -37,10 +30,9 @@ a { -webkit-user-select: none !important; }
     align-items: center;
     font-size: 7vw;
     font-weight: 400;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    box-shadow: 0px 5px 10px rgba(0,0,0,.5);
-    background-color: #5b5b5b;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    box-shadow: 0px 10px 10px rgba(0,0,0,.5);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -71,8 +63,7 @@ a { -webkit-user-select: none !important; }
     position: relative;
     width: 25vw;
     margin: 5vh 0 0 5vw;
-    background-color: #5b5b5b;
-    box-shadow: 5px 5px 50px rgba(0,0,0,.5);
+    background-color: #2d2e40;
     aspect-ratio: 1 / 1;
     border-radius: 15%;
     cursor: pointer;
