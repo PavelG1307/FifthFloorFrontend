@@ -6,7 +6,7 @@ let wsApp = (function(){
   const wsApp = {}
   const type_ws = "wss"
   // const wsUrl = 'ws://localhost:8080'
-  const wsUrl = type_ws + '://' + document.location.hostname + "/api"
+  const wsUrl = type_ws + '://' + document.location.hostname + "/ws"
   let websocket;
 
   wsApp.init = function() {
