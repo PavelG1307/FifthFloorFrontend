@@ -69,7 +69,6 @@ button{
 }
 
 #time{
-    padding-left: 10%;
     font-size: 6vw;
 }
 
@@ -85,8 +84,4 @@ button{
 .select__head{
     width: 100%;
     margin: auto;
-}
-
-.select__item{
-    color: aqua;
 }
