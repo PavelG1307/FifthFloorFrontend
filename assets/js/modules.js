@@ -1,7 +1,7 @@
 
 function wsHandler(request) {
   if (request.type === "status") {
-    setStatus(request)
+    setStatus(request.data)
   }
 }
 

@@ -82,7 +82,7 @@ async function getStatus() {
 
 function wsHandler(request) {
   if (request["type"] == "status") {
-    setStatus(request)
+    setStatus(request.data)
   } else if (request.type === 'guard') {
     if (request.message === 'Success') {
       if (request.state) {
@@ -133,7 +133,7 @@ function setStatus(status){
     }
 
     const alarm = document.getElementById('alarm').classList
-    if (Object.keys(status.rings).length > 0) {
+    if (status.rings && status.rings[0]) {
       alarm.add('active')
     } else {
       alarm.remove('active')
