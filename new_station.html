@@ -1,13 +1,45 @@
 <html>
-    <head>
-	    <meta charset="utf-8">
-        <script src="./assets/js/scripts_ws.js"></script>
-        <script src="./assets/js/scripts_new_device.js"></script>
-        <title>Новое устройство</title>
-    </head>
 
-    <body>
-        <p>Добавление нового БУ</p>
-        <button onclick="AddDevice()">Добавить</button>
-    </body>
+<head>
+  <meta charset="utf-8">
+  <link href="./assets/css/global.css" rel="stylesheet" />
+  <link href="./assets/css/new_device.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link href="./assets/css/toast.min.css" rel="stylesheet">
+  <script src="./assets/js/toast.min.js"></script>
+  <script src="./assets/js/utils.js"></script>
+  <script src="./assets/js/new_device.js"></script>
+  <title>Новое устройство</title>
+</head>
+
+<body>
+  <div class="begin" id="start">
+    <a class="text">Давайте добавим ваше первое устройство!</a>
+    <button onclick="next()" id="begin">Дальше</button>
+  </div>
+  <div class="begin hiden" id="info">
+    <a class="text">Включите станцию и подключитесь к WiFi сети:</a>
+    <div class="subtext">
+      <a>SSID: fifthfloor_XXXX</a>
+      <a>Пароль: 12345678</a>
+    </div>
+    <button onclick="connect()" id="connect">Дальше</button>
+  </div>
+  <div class="begin hiden" id="connecting">
+    <a class="connecting">Подключение...</a>
+  </div>
+  <div class="begin hiden" id="error">
+    <a class="text">Ошибка :-(</a>
+    <button onclick="connect()" id="connect">Повторить</button>
+  </div>
+  <div class="begin hiden" id="input">
+    <a class="text">Введите SSID и пароль от домашней WiFi сети</a>
+    <div class="input">
+      <input type="text" placeholder="SSID" id ="ssid">
+      <input type="password" placeholder="Пароль" id ="password">
+    </div>
+    <button onclick="send()" id="connect">Отправить</button>
+  </div>
+</body>
+
 </html>

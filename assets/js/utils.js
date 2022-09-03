@@ -1,6 +1,6 @@
 var oReq = new XMLHttpRequest();
-// const url = 'http://localhost:8080/api'
-const url = 'https://fifthfloor.site/api'
+const url = 'http://localhost:8080/api'
+// const url = 'https://fifthfloor.site/api'
 const token2 = ((cookiename) => {
   let cookiestring = RegExp(cookiename + "=[^;]+").exec(document.cookie);
   return decodeURIComponent(!!cookiestring ? cookiestring.toString().replace(/^[^=]+./, "") : "");
@@ -40,6 +40,10 @@ function StrTimeToInt(strTime) {
 }
 
 async function getData(path, method, data) {
+  const handlError = {
+    'Авторизируйтесь!': '/auth.html',
+    'Станция не найдена': '/new_station.html'
+  }
   const res = await axios({
     method,
     url: url + (path || ''),
@@ -48,10 +52,11 @@ async function getData(path, method, data) {
   if (res.data.success) {
     return res.data
   } else {
-    if (res.data.message === 'Авторизируйтесь!') {
-      document.location.href = window.location.href = document.location.origin + '/auth.html';
+    const message = res.data.message
+    if (message in handlError) {
+      document.location.href = window.location.href = document.location.origin + handlError[message];
       return
     }
-    fastMessage(res.data.message || 'Ошибка на сервере')
+    fastMessage(message || 'Ошибка на сервере')
   }
 }

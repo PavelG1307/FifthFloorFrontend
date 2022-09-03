@@ -24,7 +24,7 @@ function ChangeStateMb() {
     method: 'post',
     url: url + '/station/brightness',
     data: {
-      "brightness": stat.light? 100 : 0
+      "brightness": stat.light ? 100 : 0
     }
   }).then(res => {
     if (res.data.success) {
@@ -64,19 +64,9 @@ function error(error) {
 }
 
 async function getStatus() {
-  const res = await axios({
-    method: 'get',
-    url: url + '/station/status'
-  }).catch(e => fastMessage(e))
-  if (res.data.success) {
-    res.data.data.type = 'status'
-    setStatus(res.data.data)
-  } else {
-    if (res.data.message === 'Авторизируйтесь!') {
-      document.location.href = window.location.href = document.location.origin + '/auth.html';
-      return
-    }
-    fastMessage(res.data.message || 'Ошибка на сервере')
+  const res = await getData('/station/status', 'get', {})
+  if (res) {
+    setStatus(res.data)
   }
 }
 
@@ -113,55 +103,42 @@ function wsHandler(request) {
   }
 }
 
-function setStatus(status){
-    const main_btn = document.getElementById('mb').classList
-    if (status["active"]) {
-      main_btn.value = 'main_btn active'
-    } else {
-      main_btn.value = 'main_btn yellow'
-    }
-    document.getElementById("time").innerHTML = IntTimeToStr(status["time"]);
-    document.getElementById("battery").innerHTML = BatteryCharge(status["battery"]);
-    if (status.lamp == 0) {
-      stat.light = false
-      document.getElementById('on_btn').classList.value = 'active'
-      document.getElementById('off_btn').classList.value = ''
-    } else {
-      stat.light = true
-      document.getElementById('on_btn').classList.value = ''
-      document.getElementById('off_btn').classList.value = 'active'
-    }
+function setStatus(status) {
+  const main_btn = document.getElementById('mb').classList
+  if (status["active"]) {
+    main_btn.value = 'main_btn active'
+  } else {
+    main_btn.value = 'main_btn yellow'
+  }
+  document.getElementById("time").innerHTML = IntTimeToStr(status["time"]);
+  document.getElementById("battery").innerHTML = BatteryCharge(status["battery"]);
+  const off = status.lamp === 0
+  stat.light = off
+  document.getElementById('on_btn').classList.value = off ? 'active' : ''
+  document.getElementById('off_btn').classList.value = !off ? 'active' : ''
+  const alarm = document.getElementById('alarm').classList
+  if (status.rings && status.rings[0]) {
+    alarm.add('active')
+  } else {
+    alarm.remove('active')
+  }
 
-    const alarm = document.getElementById('alarm').classList
-    if (status.rings && status.rings[0]) {
-      alarm.add('active')
-    } else {
-      alarm.remove('active')
-    }
-
-    const speaker = document.getElementById('speaker').classList
-    if (status.speaker > 0) {
-      stat.speaker = true
-      speaker.add('active')
-    } else {
-      stat.speaker = false
-      speaker.remove('active')
-    }
-    const sensors = document.getElementById('sensors').classList
-    if (status.guard) {
-      stat.guard = true
-      sensors.value = 'btn active';
-    } else {
-      stat.guard = false
-      sensors.value = 'btn yellow'
-    }
+  const speaker = document.getElementById('speaker').classList
+  stat.speaker = status.speaker > 0
+  if (stat.speaker) {
+    speaker.add('active')
+  } else {
+    speaker.remove('active')
+  }
+  const sensors = document.getElementById('sensors').classList
+  stat.guard = status.guard
+  sensors.value = status.guard ? 'btn active' : 'btn yellow';
 };
-
-
 
 function BatteryCharge(val) {
   if (showpercent) {
-    return String(Math.floor((val - 6) / (8.2 - 6))) + '%';
+    const v = Math.floor((val - 6) / (8.2 - 6))
+    return String( v >= 0 ? v : 0) + '%';
   } else {
     return String(val) + 'V';
   }

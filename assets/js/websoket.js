@@ -44,6 +44,7 @@ let wsApp = (function(){
 
   function onError(evt){
     console.log(evt.data)
+    fastMessage('Соединение разорвано!')
   }
 
   return wsApp

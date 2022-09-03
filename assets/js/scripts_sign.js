@@ -16,12 +16,13 @@ async function SignIn() {
       login: login,
       password: password,
       email: "test@yandex.ru",
-      phone_number: "88005553535"
+      phone: "88005553535"
     };
     const res = await axios({
-      method: 'get',
-      url: url + '/auth/sign',
-      params: json_data
+      method: mode_sign_in ? 'get' : 'post',
+      url: url + '/auth/' + (mode_sign_in ? 'sign' : 'registration'),
+      params: mode_sign_in ? json_data : {},
+      data: mode_sign_in ? {} : json_data
     }).catch(e => console.log(e))
     if( res && res.data.success ) setToken(res.data.token)
     else fastMessage(res.data.message || 'Ошибка на сервере')

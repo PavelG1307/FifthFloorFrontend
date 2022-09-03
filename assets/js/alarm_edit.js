@@ -1,6 +1,6 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const id = urlParams.get('id')
+let id = urlParams.get('id')
 
 function switchParam(id) {
   document.getElementById(id).classList.toggle('active')
@@ -12,8 +12,13 @@ async function getRings() {
 }
 
 async function setData(data) {
-  if (!data[0]) {
+  console.log(data)
+  if (isNaN(data) || (id !== 'new' && !data[0])) {
     fastMessage('Будильник не найден')
+    return
+  }
+  if (id === 'new'){
+    id = data
     return
   }
   if (data[0].active) document.querySelector('#mode').classList.add('active')
