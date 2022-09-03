@@ -2,10 +2,36 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id')
 
-function switchParam(id){
-    document.getElementById(id).classList.toggle('active')
+function switchParam(id) {
+  document.getElementById(id).classList.toggle('active')
+}
+getRing()
+async function getRing() {
+  const res = await axios({
+    method: 'get',
+    url: url + `/ring?id=${id}`
+  }).catch(e => fastMessage(e))
+  if (res.data.success) {
+    await setData(res.data.data)
+  } else {
+    if (res.data.message === 'Авторизируйтесь!') {
+      document.location.href = window.location.href = document.location.origin + '/auth.html';
+      return
+    }
+    fastMessage(res.data.message || 'Ошибка на сервере')
+  }
 }
 
+async function setData(data) {
+  if (!data[0]) {
+    fastMessage('Будильник не найден')
+    return
+  }
+  if (data[0].active) document.getElementById('mode').classList.add('active')
+  if (data[0].sunrise) document.getElementById('sunrise').classList.add('active')
+  document.getElementById('time').value = IntTimeToStr(data[0].time)
+  console.log(data[0])
+}
 // function HandleMessage(req) {
 //     if (req.type == 'status') {
 //         for (key in req.rings) {

@@ -157,11 +157,7 @@ function setStatus(status){
     }
 };
 
-function IntTimeToStr(intTime) {
-  const hours = ('0' + String(Math.floor(intTime / 60))).slice(-2)
-  const minutes = ('0' + String(intTime % 60)).slice(-2)
-  return `${hours}:${minutes}`
-}
+
 
 function BatteryCharge(val) {
   if (showpercent) {

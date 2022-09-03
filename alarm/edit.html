@@ -17,23 +17,26 @@
 
 <body>
   <div class="header">
-    <div class="back" onclick="document.location.href='./'">< </div>
+    <div class="back" onclick="document.location.href='./'">
+      < </div>
     </div>
     <div class="container" id="container">
       <div class="name">Время</div>
       <input type="time" id="time">
-      <button class="param active" id="mode" onclick="switchParam(id)">Выключить</button>
+      <button class="param" id="mode" onclick="switchParam(id)">Выключить</button>
       <button class="param" id="sunrise" onclick="switchParam(id)">Эффект рассвета</button>
       <div class="name">Музыка</div>
-      <select id="music">
+      <div class="select">
+        <select class="select__head" id="music">
 
-        <option value=0>Без музыки</option>
+          <option class="select__item" value=0>Без музыки</option>
 
-        <option value=1>КиШ</option>
+          <option value=1>КиШ</option>
 
-        <option value=2>Ленинград</option>
+          <option value=2>Ленинград</option>
 
-      </select>
+        </select>
+      </div>
       <div class="but">
         <button id="btn_save" onclick="save()">Сохранить</button>
         <button id="btn_delete" onclick="del()">Удалить</button>

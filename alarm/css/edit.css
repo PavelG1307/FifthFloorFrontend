@@ -67,3 +67,26 @@ button{
 .btn{
     display: flex;
 }
+
+#time{
+    padding-left: 10%;
+    font-size: 6vw;
+}
+
+.select{
+    display: flex;
+    align-items: center;
+    width: 70vw;
+    color: #2d2e40;
+    font-size: 2vw;
+    
+}
+
+.select__head{
+    width: 100%;
+    margin: auto;
+}
+
+.select__item{
+    color: aqua;
+}
