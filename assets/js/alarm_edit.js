@@ -5,8 +5,8 @@ const id = urlParams.get('id')
 function switchParam(id) {
   document.getElementById(id).classList.toggle('active')
 }
-getRing()
-async function getRing() {
+
+async function getRings() {
   const res = await axios({
     method: 'get',
     url: url + `/ring?id=${id}`
