@@ -28,6 +28,9 @@ async function setData(data){
         const ring_el = `<div class="alarm${class_active}" id="${id}"><div class="alarm_container" onclick="onClickAlarm(${id})" oncontextmenu="return long_press(event, 'alarm/edit.html?id=${id}')"><div class="circle"></div><div class="time">${time_str}</div><div class="remains"><p>До будильника</p><p>${time_left}</p></div></div></div>`
         container.insertAdjacentHTML('beforeend', ring_el)
     }
+    if (data.length > 4) {
+        document.querySelector('.add').classList.add('hidden')
+    }
 }
 
 function timeLeft(time) {
@@ -59,12 +62,14 @@ function long_press(event, url) {
     return false;
 }
 
-function onClickAlarm(id) {
+function newRing(){
+    const count = document.querySelectorAll('.alarm').length
+    if (count < 5) document.location.href='./edit.html?id=new'
+    else fastMessage('Максимальное количество будильников')
+}
+
+async function onClickAlarm(id) {
     const el_alarm = document.getElementById(id).classList
-    el_alarm.toggle('active')
-    wsApp.doSend({
-        type: 'SET ACTIVE RING',
-        active: el_alarm.contains('active'),
-        id: id
-    })
+    const res = await getData('/ring/active', 'post', { id, state: !el_alarm.contains('active')})
+    if (res) el_alarm.toggle('active')
 }

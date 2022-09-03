@@ -17,8 +17,7 @@ async function getRings() {
 }
 
 async function setData(data) {
-  console.log(data)
-  if (isNaN(data) || (id !== 'new' && !data[0])) {
+  if (!(data || data === 0) || (id !== 'new' && !data[0])) {
     fastMessage('Будильник не найден')
     return
   }
@@ -34,6 +33,7 @@ async function setData(data) {
   document.querySelector('#music').selectedIndex = data[0].music
   console.log(data[0])
 }
+
 // function HandleMessage(req) {
 
 //     } else if (req.type == 'SAVE RING') {

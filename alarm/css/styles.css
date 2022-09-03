@@ -125,3 +125,7 @@ a { -webkit-user-select: none !important; }
     padding: 7%;
     outline: none;
 }
+
+.hidden{
+    visibility: hidden;
+}
