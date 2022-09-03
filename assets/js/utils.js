@@ -1,6 +1,6 @@
 var oReq = new XMLHttpRequest();
-const url = 'http://localhost:8080/api'
-// const url = 'https://fifthfloor.site/api'
+// const url = 'http://localhost:8080/api'
+const url = 'https://fifthfloor.site/api'
 const token2 = ((cookiename) => {
   let cookiestring = RegExp(cookiename + "=[^;]+").exec(document.cookie);
   return decodeURIComponent(!!cookiestring ? cookiestring.toString().replace(/^[^=]+./, "") : "");
