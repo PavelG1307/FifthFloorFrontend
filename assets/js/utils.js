@@ -1,6 +1,6 @@
 var oReq = new XMLHttpRequest();
-const url = 'http://localhost:8080/api'
-// const url = 'https://fifthfloor.site/api'
+// const url = 'http://localhost:8080/api'
+const url = 'https://fifthfloor.site/api'
 const token2 = ((cookiename) => {
   let cookiestring = RegExp(cookiename + "=[^;]+").exec(document.cookie);
   return decodeURIComponent(!!cookiestring ? cookiestring.toString().replace(/^[^=]+./, "") : "");
@@ -49,7 +49,7 @@ async function getData(path, method, data) {
     url: url + (path || ''),
     data
   }).catch(e => fastMessage(e))
-  if (res.data.success) {
+  if (res.data && res.data.success) {
     return res.data
   } else {
     const message = res.data.message
