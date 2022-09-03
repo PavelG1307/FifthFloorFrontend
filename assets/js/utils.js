@@ -34,3 +34,24 @@ function IntTimeToStr(intTime) {
   const minutes = ('0' + String(intTime % 60)).slice(-2)
   return `${hours}:${minutes}`
 }
+
+function StrTimeToInt(strTime) {
+    return Number(strTime.split(':')[0])*60+Number(strTime.split(':')[1])
+}
+
+async function getData(path, method, data) {
+  const res = await axios({
+    method,
+    url: url + (path || ''),
+    data
+  }).catch(e => fastMessage(e))
+  if (res.data.success) {
+    return res.data
+  } else {
+    if (res.data.message === 'Авторизируйтесь!') {
+      document.location.href = window.location.href = document.location.origin + '/auth.html';
+      return
+    }
+    fastMessage(res.data.message || 'Ошибка на сервере')
+  }
+}
