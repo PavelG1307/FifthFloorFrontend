@@ -1,59 +1,39 @@
 
 function wsHandler(request) {
   if (request.type === "status") {
-    setStatus(request.data)
+    setStatus(request.data.modules)
   }
 }
 
 async function getStatus() {
-  const res = await axios({
-    method: 'get',
-    url: url + '/station/status'
-  }).catch(e => fastMessage(e))
-  if (res.data.success) {
-    res.data.data.type = 'status'
-    setStatus(res.data.data)
-  } else {
-    if (res.data.message === 'Авторизируйтесь!') {
-      document.location.href = window.location.href = document.location.origin + '/auth.html';
-      return
-    }
-    fastMessage(res.data.message || 'Ошибка на сервере')
-  }
+  const res = await getData('/module', 'get', {})
+  console.log(res.data)
+  setStatus(res.data)
 }
 
-function setStatus(status) {
+function setStatus(modules) {
   const parrent = document.getElementById("container")
   parrent.innerHTML = ""
-  for (const key in status.modules) {
-    const sens = status.modules[key]
+  for (const key in modules) {
+    const sens = modules[key]
     const elem = document.createElement('div');
     const elem_cont = document.createElement('div');
     const elem_name = document.createElement('div');
     elem.setAttribute("id", sens.id_module);
-    if (sens["type"] < 20) {
+    if (sens['mode'] !== 'managed') {
       elem.setAttribute("onclick", "openSettings(id)")
     } else {
       elem.setAttribute("onclick", "changeStatus(id)")
       elem.setAttribute("oncontextmenu", `return long_press(event,${sens.id_module})`)
     }
-    let elem_value;
-    if (sens["type"] < 10) {
+    let elem_value
+    if ( sens.image ) {
+      elem_value = document.createElement("img");
+      elem_value.setAttribute("src", '../' + sens.image);
+    } else {
       elem_value = document.createElement('div');
       elem_value.appendChild(document.createTextNode(sens["last_value"]));
       elem_value.classList.value = "value"
-    } else if (sens["type"] == 11) {
-      elem_value = document.createElement("img");
-      elem_value.setAttribute("src", "../assets/src/img/door.png");
-    } else if (sens["type"] < 20) {
-      elem_value = document.createElement("img");
-      elem_value.setAttribute("src", "../assets/src/img/sensors.png");
-    } else if (sens["type"] < 30) {
-      elem_value = document.createElement("img");
-      elem_value.setAttribute("src", "../assets/src/img/plug.png");
-    } else {
-      console.log('Ошибка, тип ', sens["type"])
-      return
     }
     const elem_location = document.createElement('div');
     const elem_circle = document.createElement('div');

@@ -8,12 +8,9 @@
 
 
 .container {
-    position: absolute;
-    top: 50%;
-    margin-top: -30%;
+    margin-top: 20%;
     display: flex;
     flex-direction: column;
-    height: 50%;
     align-items: center;
     align-content: center;
     justify-content: center;
@@ -36,7 +33,7 @@ button{
     width: 70vw;
     height: 10vh;
     display: block;
-    margin: auto;
+    margin: auto auto 10% auto;
     background-color: #2d2e40;
     font-size: 4vw;
     border: none;
@@ -46,3 +43,47 @@ button{
     cursor: pointer;
 }
 
+.if{
+    width: 80%;
+    border-bottom: 10px white;
+}
+
+.row{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.row button{
+    width: 7vh;
+    height: 7vh;
+    margin: 0;
+}
+
+.row select{
+    width: 7vh;
+    height: 7vh;
+    text-align: center;
+    background: none;
+    color: white;
+    font-size: 7vw;
+    border: none;
+}
+
+.row input{
+    height: 5vh;
+    width: 20vw;
+    margin: 0;
+}
+
+#action{
+    width: 70vw;
+    height: 5vh;
+    margin: 4% 0 10% 0;
+    text-align: center;
+    background: none;
+    color: white;
+    font-size: 4vw;
+    border: none;
+}

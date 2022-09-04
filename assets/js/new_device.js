@@ -1,21 +1,22 @@
 station_url = 'http://192.168.0.101'
 
 let saveData = {}
-let pass = 40
+let pass = 0
 async function checkConnect(url, data, method){
     saveData = { url, data, method }
     if (pass<2) {
         pass++
-        return null
+        return { data: false }
     }
     pass = 0
+    console.log(url)
     if (url) return await axios({ method: method || 'get', url: url || station_url, data }).catch(() => {})
     console.log(`Выполнен запрос: ${url || station_url} с параметрами ${JSON.stringify(data) || '(без)'} `)
-    return zglushka(3)
+    return { data: { success: true }}
 }
 
 let count = 0
-function zglushka(n) {
+async function zglushka(n) {
     count = count<n ? count+1 : -1
     return count === -1
 }
@@ -40,8 +41,9 @@ function connecting( next, url, data, method ){
     const animation = setInterval(async ()=>{
         const text = document.querySelector('.connecting')
         const res = await checkConnect(url, data, method)
+        console.log(res.data)
         // const res = ''
-        if (res) {
+        if (res && res.data && res.data.success) {
             clearInterval(animation)
             clearInterval(timeout)
             document.querySelectorAll('input').forEach( el => el.addEventListener('keydown', function(e) {
@@ -50,7 +52,6 @@ function connecting( next, url, data, method ){
                 }
             }))
             document.querySelector('#connecting').classList.add('hiden')
-            console.log(next)
             if (next) next('')
             else document.querySelector('#input').classList.remove('hiden')
             if (url) 
