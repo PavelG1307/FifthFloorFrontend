@@ -46,6 +46,10 @@ button{
 .if{
     width: 80%;
     border-bottom: 10px white;
+    padding-bottom: 5%;
+    border-bottom: medium dashed #2d2e40;
+    padding-top: 5%;
+    border-top: medium dashed #2d2e40;
 }
 
 .row{
@@ -80,10 +84,16 @@ button{
 #action{
     width: 70vw;
     height: 5vh;
-    margin: 4% 0 10% 0;
+    margin: 4% 0 0 0;
     text-align: center;
     background: none;
     color: white;
     font-size: 4vw;
     border: none;
+}
+
+#btn_add {
+    height: 10vh;
+    margin-bottom: 20%;
+    margin-top: 10%;
 }
