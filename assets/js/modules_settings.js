@@ -14,20 +14,28 @@ async function addTask() {
   button.insertAdjacentHTML('beforebegin', node);
   count_actions++
   if (count_actions > 1) {
-    button.remove()
+    button.classList.add('hidden')
+  }
+}
+
+async function deleteTask(i){
+  document.getElementById('if_' + i).remove()
+  count_actions --
+  if(count_actions === 1){
+    document.getElementById('btn_add').classList.remove('hidden')
   }
 }
 
 async function getActionEl(actions, i, placeholder) {
   let action = `
-    <div class="if">
+    <div class="if" id="if_${i}">
       <div class="row">
-          <select id="type">
+          <select id="type" value="${i}">
               <option value="0">></option>
               <option value="1"><</option>
           </select>
-          <input type="text" id="value_${i}" placeholder="${placeholder}">
-          <button id="btn" onclick="deleteTask(id)">x</button>
+          <input type="text" id="value" value="${placeholder}">
+          <button id="${i}" onclick="deleteTask(id)">x</button>
       </div>
     <select id="action">`
   for (const i in actions) {
@@ -40,10 +48,6 @@ async function getActionEl(actions, i, placeholder) {
   return action
 }
 
-async function test(text) {
-  console.log(text)
-}
-sdkjfkas
 async function getModule() {
   const res = await axios({
     method: 'get',
