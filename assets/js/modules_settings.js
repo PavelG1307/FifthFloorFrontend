@@ -40,11 +40,10 @@ async function getActionEl(actions, i, placeholder) {
   return action
 }
 
-
-async function getModule(text) {
+async function test(text) {
   console.log(text)
 }
-
+sdkjfkas
 async function getModule() {
   const res = await axios({
     method: 'get',
