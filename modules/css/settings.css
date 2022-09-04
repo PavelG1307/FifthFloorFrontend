@@ -94,6 +94,9 @@ button{
 
 #btn_add {
     height: 10vh;
-    margin-bottom: 20%;
     margin-top: 10%;
+}
+
+#btn_save {
+    margin-top: 7%;
 }

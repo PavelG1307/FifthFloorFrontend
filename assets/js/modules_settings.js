@@ -58,14 +58,14 @@ function del() {
 async function getActionEl(actions, i, placeholder) {
   let action = `
     <div class="if">
-    <div class="row">
-        <select id="type">
-            <option value="0">></option>
-            <option value="1"><</option>
-        </select>
-        <input type="text" id="value_${i}" placeholder="${placeholder}">
-        <button id="btn" onclick="deleteTask(id)">x</button>
-    </div>
+      <div class="row">
+          <select id="type">
+              <option value="0">></option>
+              <option value="1"><</option>
+          </select>
+          <input type="text" id="value_${i}" placeholder="${placeholder}">
+          <button id="btn" onclick="deleteTask(id)">x</button>
+      </div>
     <select id="action">`
   for (const i in actions) {
     const action_true = actions[i].action_true + ' «' + actions[i].name + '»'
@@ -82,4 +82,8 @@ async function addTask() {
   const button = document.getElementById('btn_add')
   const node = await getActionEl(actions, count_actions, value)
   button.insertAdjacentHTML('beforebegin', node);
+  count_actions++
+  if (count_actions > 1) {
+    button.remove()
+  }
 }
