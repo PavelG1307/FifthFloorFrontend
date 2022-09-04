@@ -7,6 +7,17 @@ let actions = []
 let value = 0
 let count_actions = 0
 
+async function addTask() {
+  const button = document.getElementById('btn_add')
+  const node = await getActionEl(actions, count_actions, value)
+  console.log('asfsafnasfdaksjalkd')
+  // button.insertAdjacentHTML('beforebegin', node);
+  count_actions++
+  if (count_actions > 1) {
+    button.remove()
+  }
+}
+
 async function getActionEl(actions, i, placeholder) {
   let action = `
     <div class="if">
@@ -27,18 +38,6 @@ async function getActionEl(actions, i, placeholder) {
   }
   action += `</select></div>`
   return action
-}
-
-
-async function addTask() {
-  const button = document.getElementById('btn_add')
-  const node = await getActionEl(actions, count_actions, value)
-  console.log('asfsafnasfdaksjalkd')
-  // button.insertAdjacentHTML('beforebegin', node);
-  count_actions++
-  if (count_actions > 1) {
-    button.remove()
-  }
 }
 
 
