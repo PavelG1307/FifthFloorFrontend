@@ -5,6 +5,7 @@ const id = urlParams.get('id')
 
 let actions = []
 let value = 0
+let count_actions = 0
 
 async function getActionEl(actions, i, placeholder) {
   let action = `
@@ -28,7 +29,7 @@ async function getActionEl(actions, i, placeholder) {
   return action
 }
 
-let count_actions = 0
+
 async function addTask() {
   const button = document.getElementById('btn_add')
   const node = await getActionEl(actions, count_actions, value)
