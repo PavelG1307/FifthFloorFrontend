@@ -30,19 +30,19 @@ async function getActionEl(actions, i, placeholder) {
   let action = `
     <div class="if" id="if_${i}">
       <div class="row">
-          <select id="type" value="${i}">
+          <select class="type" value="${i}">
               <option value="0">></option>
               <option value="1"><</option>
           </select>
-          <input type="text" id="value" value="${placeholder}">
+          <input type="text" class="value" value="${placeholder}">
           <button id="${i}" onclick="deleteTask(id)">x</button>
       </div>
-    <select id="action">`
+    <select class="action">`
   for (const i in actions) {
     const action_true = actions[i].action_true + ' «' + actions[i].name + '»'
     const action_false = actions[i].action_false + ' «' + actions[i].name + '»'
-    action += `<option value="${2*i}"> ${action_true} </option>`
-    action += `<option value="${2*i + 1}"> ${action_false} </option>`
+    action += `<option value="${actions[i].action_id + ' true'}"> ${action_true} </option>`
+    action += `<option value="${actions[i].action_id + ' false'}"> ${action_false} </option>`
   }
   action += `</select></div>`
   return action
@@ -67,26 +67,32 @@ async function getModule() {
 }
 
 function setData(data) {
+  document.querySelector('.type').textContent = data.type
   document.getElementById('name').setAttribute('value', data.name)
   document.getElementById('room').setAttribute('value', data.location)
 }
 
 async function save() {
+  const actions = []
+  const ifs = document.getElementsByClassName('if')
+  console.log(ifs)
+  for (let i = 0; i < ifs.length; i++) {
+    const el = document.querySelectorAll('.if')[i]
+    const condition = el.querySelector('.type').value
+    const value2 = el.querySelector('.value').value
+    const action = document.querySelectorAll('.if')[i].querySelector('.action').selectedOptions[0].value
+    actions.push({condition, value2, action})
+  }
   const name = document.getElementById('name').value
   const location = document.getElementById('room').value
   const res = await axios({
     method: 'post',
     url: url + '/module/update',
-    data: { id, name, location }
+    data: { id, name, location, actions }
   }).catch(e => fastMessage(e))
   if (res.data.success) {
     goTo('modules')
   } else {
-    // if (res.data.message === 'Авторизируйтесь!') {
-    //   document.location.href = window.location.href = document.location.origin + '/auth.html';
-    //   return
-    // }
-
     fastMessage(res.data.message || 'Ошибка на сервере')
   }
 }

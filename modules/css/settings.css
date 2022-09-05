@@ -8,7 +8,7 @@
 
 
 .container {
-    margin-top: 20%;
+    /* margin-top: 20%; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -81,7 +81,7 @@ button{
     margin: 0;
 }
 
-#action{
+.action{
     width: 70vw;
     height: 5vh;
     margin: 4% 0 0 0;
@@ -104,4 +104,10 @@ button{
 .hidden {
     position: absolute;
     top: -100%;
+}
+
+.type{
+    font-size: 6vw;
+    margin: 5vh 0;
+    font-weight: 100;
 }
