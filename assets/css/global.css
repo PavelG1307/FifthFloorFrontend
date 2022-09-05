@@ -3,6 +3,14 @@ body {
     font-family: 'Montserrat', sans-serif;
     -webkit-touch-callout: none !important;
     color: white;
+    /* position: absolute; */
+    /* top: -10% */
+}
+
+@media screen and (orientation: landscape) {
+    body {scale: 0.5;
+        /* margin-top: -16%; */
+    }
 }
 
 button:active button:focus {
