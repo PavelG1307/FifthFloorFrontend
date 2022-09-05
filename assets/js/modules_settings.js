@@ -42,7 +42,7 @@ async function getActionEl(actions, i, placeholder) {
   for (let j = 0; j < actions.length; j++) {
     const act = actions[j].action + ' «' + actions[j].name + '»'
     console.log(act)
-    action += `<option value="${actions[j].action_id}"> ${act} </option>`
+    action += `<option value="${j}"> ${act} </option>`
   }
   action += `</select></div>`
   return action
