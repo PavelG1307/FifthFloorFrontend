@@ -6,28 +6,29 @@ const stat = {
 }
 
 function ChangeState(id) {
-  document.getElementById(id).classList.toggle('active')
+  
   if (id == 'speaker') {
-    stat.speaker = !stat.speaker
-    // wsApp.doSend({
-    //     type: "SET SPEAKER",
-    //     volume: stat.speaker
-    // })
+    const res = getData('/station/speaker', 'post', 
+    {
+      'volume': !stat.speaker ? 100 : 0
+    })
+    if (res) {
+      stat.speaker = !stat.speaker
+      document.getElementById(id).classList.toggle('active')
+    }
   }
+  
 }
 
-function ChangeStateMb() {
+async function ChangeStateMb() {
   stat.light = !stat.light
   const on_el = document.getElementById('on_btn').classList
   const off_el = document.getElementById('off_btn').classList
-  axios({
-    method: 'post',
-    url: url + '/station/brightness',
-    data: {
+  const res = await getData('/station/brightness', 'post', 
+    {
       "brightness": stat.light ? 100 : 0
-    }
-  }).then(res => {
-    if (res.data.success) {
+    })
+    if (res) {
       if (stat.light) {
         on_el.value = ''
         off_el.value = 'active'
@@ -35,8 +36,7 @@ function ChangeStateMb() {
         on_el.value = 'active'
         off_el.value = ''
       }
-    } else error(res.data.message || 'Ошибка на сервере')
-  }).catch(e => console.log(e))
+    }
 }
 
 function long_press(event, url) {

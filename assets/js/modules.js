@@ -65,12 +65,13 @@ function setStatus(modules) {
 
 function changeStatus(id) {
   btn_module = document.getElementById(id).classList
-  btn_module.toggle('active')
-  wsApp.doSend({
-    type: "SET MODULE",
-    module: id,
-    state: btn_module.contains('active')
+  const res = getData('/module/set', 'post', {
+    id,
+    state: !btn_module.contains('active')
   })
+  if (res) {
+    btn_module.toggle('active')
+  }
 }
 
 function openSettings(id) {
