@@ -32,7 +32,7 @@ function setStatus(modules) {
       elem_value.setAttribute("src", '../' + sens.image);
     } else {
       elem_value = document.createElement('div');
-      elem_value.appendChild(document.createTextNode(sens["last_value"]));
+      elem_value.appendChild(document.createTextNode(sens.last_value + sens.units || ''));
       elem_value.classList.value = "value"
     }
     const elem_location = document.createElement('div');
