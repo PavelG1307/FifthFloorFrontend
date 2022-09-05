@@ -18,10 +18,10 @@ async function addTask() {
   }
 }
 
-async function deleteTask(i){
+async function deleteTask(i) {
   document.getElementById('if_' + i).remove()
-  count_actions --
-  if(count_actions === 1){
+  count_actions--
+  if (count_actions === 1) {
     document.getElementById('btn_add').classList.remove('hidden')
   }
 }
@@ -38,11 +38,11 @@ async function getActionEl(actions, i, placeholder) {
           <button id="${i}" onclick="deleteTask(id)">x</button>
       </div>
     <select class="action">`
-  for (const i in actions) {
-    const action_true = actions[i].action_true + ' «' + actions[i].name + '»'
-    const action_false = actions[i].action_false + ' «' + actions[i].name + '»'
-    action += `<option value="${actions[i].action_id + ' true'}"> ${action_true} </option>`
-    action += `<option value="${actions[i].action_id + ' false'}"> ${action_false} </option>`
+  console.log(actions)
+  for (let j = 0; j < actions.length; j++) {
+    const act = actions[j].action + ' «' + actions[j].name + '»'
+    console.log(act)
+    action += `<option value="${actions[j].action_id}"> ${act} </option>`
   }
   action += `</select></div>`
   return action
@@ -73,28 +73,33 @@ function setData(data) {
 }
 
 async function save() {
-  const actions = []
+  const acts = []
   const ifs = document.getElementsByClassName('if')
-  console.log(ifs)
   for (let i = 0; i < ifs.length; i++) {
     const el = document.querySelectorAll('.if')[i]
     const condition = el.querySelector('.type').value
     const value2 = el.querySelector('.value').value
-    const action = document.querySelectorAll('.if')[i].querySelector('.action').selectedOptions[0].value
-    actions.push({condition, value2, action})
+    const act = document.querySelectorAll('.if')[i].querySelector('.action').selectedOptions[0].value
+    const action = {
+      id: actions[act[0]].action_id,
+      target_module: actions[act[0]].id_module,
+      state: Boolean(act[1])
+    }
+    acts.push({ condition, value2, action })
   }
   const name = document.getElementById('name').value
   const location = document.getElementById('room').value
-  const res = await axios({
-    method: 'post',
-    url: url + '/module/update',
-    data: { id, name, location, actions }
-  }).catch(e => fastMessage(e))
-  if (res.data.success) {
-    goTo('modules')
-  } else {
-    fastMessage(res.data.message || 'Ошибка на сервере')
-  }
+  console.log({ id, name, location, acts })
+  // const res = await axios({
+  //   method: 'post',
+  //   url: url + '/module/update',
+  //   data: { id, name, location, actions }
+  // }).catch(e => fastMessage(e))
+  // if (res.data.success) {
+  //   goTo('modules')
+  // } else {
+  //   fastMessage(res.data.message || 'Ошибка на сервере')
+  // }
 }
 
 function del() {
