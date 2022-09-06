@@ -52,3 +52,10 @@ document.querySelectorAll('input').forEach(el => el.addEventListener('keydown', 
     SignIn()
   }
 }))
+
+function show_hide_password() {
+  document.querySelector('.password-control').classList.toggle('view')
+  const pass = document.querySelector('#password')
+  const type_pass = pass.getAttribute('type') == 'password'
+  pass.type = type_pass ? 'text' : 'password'
+}

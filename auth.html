@@ -18,7 +18,12 @@
     </div>
     <div class="input">
       <input placeholder="Логин" type="text" id="login">
-      <input placeholder="Пароль" type="password" id="password">
+      <!-- <input placeholder="Пароль" type="password" id="password"> -->
+      <div class="password">
+        <input type="password" id="password" placeholder="Пароль">
+        <img class="password-control"  src="./assets/src/img/eye.png" onclick="return show_hide_password(this);">
+        <!-- <a href="#" class="password-control" onclick="return show_hide_password(this);"></a> -->
+      </div>
       <button onclick="SignIn()">Войти</button>
     </div>
     <div class="change">
