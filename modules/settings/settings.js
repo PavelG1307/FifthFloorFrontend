@@ -188,7 +188,7 @@ async function setActionEl(act, val, i) {
       }
       acts += `<div class="item" id="${i}.${j}" onclick="select('action${i}', id)">${act_value}</div>`
     }
-  element += `</div></div></div>`
+  element += acts + `</div></div></div>`
   return element
 }
 async function select(parentId, id) {
@@ -209,6 +209,11 @@ async function deploy(id) {
 }
 
 function hiddenSelect() {
-  document.querySelectorAll('.select_new').forEach(el => el.classList = 'select_new roll')
+  document.querySelectorAll('.select_new').forEach(el => {
+    if (el.classList.contains('open')){
+      el.classList.remove('open')
+      el.classList.add('roll')
+    }
+  })
   document.querySelector('#bg').classList = ''
 }
