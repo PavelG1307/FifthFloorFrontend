@@ -16,7 +16,7 @@ html, body {
     height: 100%;
     align-items: center;
     align-content: center;
-    justify-content:space-around
+    justify-content: space-evenly;
 }
 
 .text {
@@ -88,5 +88,38 @@ button{
     filter: invert();
 }
 .view {
-    content:url('../src/img/close\ eye.png') !important;
+    content:url('./src/img/close\ eye.png') !important;
+}
+
+.auth #phone{
+    position: absolute;
+    top: -100%
+}
+
+.auth #email{
+    position: absolute;
+    top: -100%
+}
+
+.hidden{
+    position: absolute;
+    top: -100%;
+    visibility: hidden;
+}
+
+.sms{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 300%;
+}
+
+.text {
+    margin-bottom: 10%;
+}
+
+.sms button{
+    margin: 0;
 }

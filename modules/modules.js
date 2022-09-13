@@ -75,7 +75,7 @@ function changeStatus(id) {
 }
 
 function openSettings(id) {
-  window.location.href = `./setings.html?id=${id}`
+  window.location.href = `./settings/index.html?id=${id}`
 }
 
 function long_press(event, id) {

@@ -25,7 +25,7 @@ async function setData(data){
         const time_str = IntTimeToStr(time)
         const time_left = timeLeft(time)
         const class_active = active?" active":""
-        const ring_el = `<div class="alarm${class_active}" id="${id}"><div class="alarm_container" onclick="onClickAlarm(${id})" oncontextmenu="return long_press(event, 'alarm/edit.html?id=${id}')"><div class="circle"></div><div class="time">${time_str}</div><div class="remains"><p>До будильника</p><p>${time_left}</p></div></div></div>`
+        const ring_el = `<div class="alarm${class_active}" id="${id}"><div class="alarm_container" onclick="onClickAlarm(${id})" oncontextmenu="return long_press(event, 'alarm/edit?id=${id}')"><div class="circle"></div><div class="time">${time_str}</div><div class="remains"><p>До будильника</p><p>${time_left}</p></div></div></div>`
         container.insertAdjacentHTML('beforeend', ring_el)
     }
     if (data.length > 4) {

@@ -1,5 +1,4 @@
 const stat = {
-  "tokken": "TOKKEN2",
   "light": false,
   "speaker": false,
   "guard": false
@@ -143,6 +142,6 @@ function BatteryCharge(val) {
     return String(val) + 'V';
   }
 }
-
+getStatus()
 
 

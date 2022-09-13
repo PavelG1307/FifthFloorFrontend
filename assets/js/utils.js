@@ -2,12 +2,10 @@ var oReq = new XMLHttpRequest();
 const dev = document.location.hostname === '127.0.0.1'
 const url = dev ? 'http://localhost:8080/api' : 'https://fifthfloor.site/api'
 
-const token2 = ((cookiename) => {
-  let cookiestring = RegExp(cookiename + "=[^;]+").exec(document.cookie);
-  return decodeURIComponent(!!cookiestring ? cookiestring.toString().replace(/^[^=]+./, "") : "");
-})('token')
-axios.defaults.headers.get['Authorization'] = 'Bearer ' + token2
-axios.defaults.headers.post['Authorization'] = 'Bearer ' + token2
+const cookiestring = RegExp('token=[^;]+').exec(document.cookie);
+const token2 =  decodeURIComponent(!!cookiestring ? cookiestring.toString().replace(/^[^=]+./, "") : "");
+const config = { Authorization: `Bearer ${token2}` }
+
 
 async function goTo(url) {
   if (window.location.pathname == "/" + url) { } else {
@@ -42,18 +40,20 @@ function StrTimeToInt(strTime) {
 
 async function getData(path, method, data) {
   const handlError = {
-    'Авторизируйтесь!': '/auth.html',
-    'Станция не найдена': '/new_station.html'
+    'Авторизируйтесь!': '/auth',
+    'Станция не найдена': '/station/new'
   }
   const res = await axios({
     method,
     url: url + (path || ''),
-    data
+    data,
+    headers: config
   }).catch(e => fastMessage(e))
   if (res.data && res.data.success) {
     return res.data
   } else {
     const message = res.data.message
+    console.log(res.data)
     if (message in handlError) {
       document.location.href = window.location.href = document.location.origin + handlError[message];
       return
