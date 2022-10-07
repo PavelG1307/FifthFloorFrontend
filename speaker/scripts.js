@@ -18,12 +18,7 @@ let y = 138
 // wheel.addEventListener('mousedown', (ev)=>{console.log(ev)})
 // wheel.addEventListener('mousemove', (ev)=>{console.log(ev)});
 
-wheel.addEventListener('mousedown', (e) => {isDrawing = true;});
-wheel.addEventListener('touchstart', (e) => {isDrawing = true;});
-wheel.addEventListener('mouseup', (e) => {isDrawing = false;});
-wheel.addEventListener('touchend', (e) => {isDrawing = false;});
-wheel.addEventListener('mousemove', move)
-wheel.addEventListener('touchmove', move)
+wheel.addEventListener('click', move)
 const move = (e) => {
   if (isDrawing) {
     const dy = e.offsetY - y 
