@@ -1,6 +1,36 @@
-function long_press(event, url) {
-    event = event || window.event;
-    event.cancelBubble = true;
-    goTo(url);
-    return false;
-  }
+(function () {
+  
+    // Create variable for setTimeout
+    var delay;
+    
+    // Set number of milliseconds for longpress
+    var longpress = 300;
+    
+    var listItems = document.getElementsByClassName('list-item');
+    var listItem;
+    
+    for (var i = 0, j = listItems.length; i < j; i++) {
+      listItem = listItems[i];
+      
+      listItem.addEventListener('mousedown', function (e) {
+        var _this = this;
+        delay = setTimeout(check, longpress);
+        
+        function check() {
+            _this.classList.add('is-selected');
+        }
+        
+      }, true);
+      
+      listItem.addEventListener('mouseup', function (e) {
+        // On mouse up, we know it is no longer a longpress
+        clearTimeout(delay);
+      });
+      
+      listItem.addEventListener('mouseout', function (e) {
+        clearTimeout(delay);
+      });
+      
+    }
+    
+  }());
