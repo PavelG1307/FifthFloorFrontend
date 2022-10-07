@@ -12,7 +12,7 @@
     for (var i = 0, j = listItems.length; i < j; i++) {
       listItem = listItems[i];
       
-      listItem.addEventListener('mousedown', function (e) {
+      listItem.addEventListener('touchend', function (e) {
         var _this = this;
         delay = setTimeout(check, longpress);
         
@@ -22,12 +22,12 @@
         
       }, true);
       
-      listItem.addEventListener('mouseup', function (e) {
+      listItem.addEventListener('touchstart', function (e) {
         // On mouse up, we know it is no longer a longpress
         clearTimeout(delay);
       });
       
-      listItem.addEventListener('mouseout', function (e) {
+      listItem.addEventListener('touchend', function (e) {
         clearTimeout(delay);
       });
       
