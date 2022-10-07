@@ -17,7 +17,7 @@
         delay = setTimeout(check, longpress);
         
         function check() {
-            _this.classList.add('is-selected');
+            _this.innerText = 'sdjflksajflkf';
         }
         
       }, true);
