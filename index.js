@@ -49,8 +49,6 @@ listenLongClick(document.getElementById('speaker'), ()=>{goTo('./speaker')}, 250
 listenLongClick(document.getElementById('sensors'), ()=>{PutOnGuard()}, 250)
 
 function PutOnGuard(event) {
-  event = event || window.event;
-  event.cancelBubble = true;
   wsApp.doSend({
     "type": "GUARD",
     "value": !stat.guard
