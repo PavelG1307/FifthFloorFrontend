@@ -144,6 +144,23 @@ a { -webkit-user-select: none !important; }
     transform: translateY(-50%) translateX(-50%);
 }
 
+/* .btn #image_alarm{
+    position: absolute;
+    margin: auto;
+    display: block;
+    max-width:75%;
+    margin: auto;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    background-image: url(/assets/src/img/alarm.png);
+    background-repeat: no-repeat;
+    background-position: -40px 0px;
+    background-size: cover;
+} */
+
+/* "./assets/src/img/alarm.png" */
+
 .list {
     display: inline;
     height: 100%;
