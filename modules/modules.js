@@ -25,7 +25,7 @@ function setStatus(modules) {
     } else {
       elem.setAttribute("onclick", "changeStatus(id)")
       // elem.setAttribute("oncontextmenu", `return long_press(event,${sens.id_module})`)
-      listenLongClick(elem, ()=>{openSettings(id)}, 250)
+      listenLongClick(elem, ()=>{openSettings(sens.id_module)}, 250)
     }
     let elem_value
     if ( sens.image ) {
