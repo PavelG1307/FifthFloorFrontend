@@ -39,11 +39,13 @@ async function ChangeStateMb() {
 }
 
 function long_press(event, url) {
-  event = event || window.event;
-  event.cancelBubble = true;
-  goTo(url);
-  return false;
+  // event = event || window.event;
+  // event.cancelBubble = true;
+  // goTo(url);
+  // return false;
 }
+
+listenLongClick(document.getElementById('speaker'), ()=>{goTo('./speaker')}, 250)
 
 function PutOnGuard(event) {
   event = event || window.event;
