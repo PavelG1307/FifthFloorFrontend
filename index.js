@@ -46,6 +46,7 @@ function long_press(event, url) {
 }
 
 listenLongClick(document.getElementById('speaker'), ()=>{goTo('./speaker')}, 250)
+listenLongClick(document.getElementById('sensors'), ()=>{PutOnGuard()}, 250)
 
 function PutOnGuard(event) {
   event = event || window.event;

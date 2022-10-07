@@ -24,7 +24,8 @@ function setStatus(modules) {
       elem.setAttribute("onclick", "openSettings(id)")
     } else {
       elem.setAttribute("onclick", "changeStatus(id)")
-      elem.setAttribute("oncontextmenu", `return long_press(event,${sens.id_module})`)
+      // elem.setAttribute("oncontextmenu", `return long_press(event,${sens.id_module})`)
+      listenLongClick(elem, ()=>{openSettings(id)}, 250)
     }
     let elem_value
     if ( sens.image ) {
@@ -78,9 +79,9 @@ function openSettings(id) {
   window.location.href = `./settings/index.html?id=${id}`
 }
 
-function long_press(event, id) {
-  event = event || window.event;
-  event.cancelBubble = true;
-  openSettings(id)
-  return false;
-}
+// function long_press(event, id) {
+//   event = event || window.event;
+//   event.cancelBubble = true;
+//   openSettings(id)
+//   return false;
+// }
