@@ -80,7 +80,7 @@ async function setData(data) {
     let elem = ''
     for (const i in data.actions) {
       count_actions++
-      elem += await setActionEl(data.actions[i], data.last_value, i)
+      elem += await setActionEl(data.actions[i], data.actions[i].value, i)
     }
     const button = document.getElementById('btn_add')
     button.insertAdjacentHTML('beforebegin', elem);
@@ -96,14 +96,14 @@ async function save() {
   const ifs = document.getElementsByClassName('if')
   for (let i = 0; i < ifs.length; i++) {
     const el = document.querySelectorAll('.if')[i]
-    const condition = Number(el.querySelector('.type').value)
+    const condition = Number(el.querySelector('.sign').dataset.select)
     let value2
     if (type_value === 'var') {
       value2 = Number(el.querySelector('.value').value)
     } else {
       value2 = null
     }
-    const act = document.querySelectorAll('.if')[i].querySelector('.action').selectedOptions[0].value
+    const act = el.querySelector('.selAction').dataset.select
     const action = {
       id: actions[act[0]].action_id,
       target_module: actions[act[0]].id_module,
@@ -112,16 +112,8 @@ async function save() {
   }
   const name = document.getElementById('name').value
   const location = document.getElementById('room').value
-  const res = await axios({
-    method: 'post',
-    url: url + '/module/update',
-    data: { id, name, location, actions: acts }
-  }).catch(e => fastMessage(e))
-  if (res.data.success) {
-    goTo('modules')
-  } else {
-    fastMessage(res.data.message || 'Ошибка на сервере')
-  }
+  const res = await getData('/module/update', 'post', { id, name, location, actions: acts })
+  if (res.success) goTo('modules')
 }
 
 function del() {
@@ -194,10 +186,9 @@ async function setActionEl(act, val, i) {
 async function select(parentId, id) {
   const parent = document.getElementById(parentId)
   const target = document.getElementById(id)
-  console.log(parent, target)
   const main = parent.querySelector('.main')
   main.innerText = target.innerText
-  parent.dataset.select = target.id
+  parent.dataset.select = target.id.split('.').at(-1)
   deploy(parentId)
 }
 async function deploy(id) {

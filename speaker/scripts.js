@@ -18,7 +18,6 @@ let y = 138
 // wheel.addEventListener('mousedown', (ev)=>{console.log(ev)})
 // wheel.addEventListener('mousemove', (ev)=>{console.log(ev)});
 
-wheel.addEventListener('click', move)
 const move = (e) => {
   if (isDrawing) {
     const dy = e.offsetY - y 
@@ -35,3 +34,5 @@ const move = (e) => {
     // y = e.offsetY;
   }
 }
+
+wheel.addEventListener('click', move)
