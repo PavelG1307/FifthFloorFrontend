@@ -29,10 +29,10 @@ a { -webkit-user-select: none !important; }
 
 .back{
     position: absolute;
-    left: 7%;
-    font-size: 12vw;
-    font-weight: 100;
+    left:10%;
+    height:4%;
     cursor: pointer;
+    filter: invert();
 }
 
 .container{

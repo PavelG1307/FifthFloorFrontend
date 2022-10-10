@@ -23,3 +23,11 @@ button:active button:focus {
 button::-moz-focus-inner {
     border: 0;
 }
+
+.back {
+    position: absolute;
+    left: 10%;
+    height: 4%;
+    cursor: pointer;
+    filter: invert();
+}

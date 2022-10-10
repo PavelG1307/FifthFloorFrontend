@@ -38,6 +38,8 @@ async function ChangeStateMb() {
     }
 }
 
+listenLongClick(document.querySelector('.main_btn_container'), () => goTo('./mode'), 300, ChangeStateMb)
+
 function long_press(event, url) {
   // event = event || window.event;
   // event.cancelBubble = true;

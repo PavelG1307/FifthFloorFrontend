@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Режимы | 5 этаж</title>
+        <link rel="shortcut icon" href="../assets/src/img/favicon.ico" type="image/x-icon">
+        <link href="../assets/css/toast.min.css" rel="stylesheet">
+        <script src="../assets/js/toast.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src = '../assets/js/utils.js'></script>
+        <script src="../assets/js/longpress.js"></script>
+        <script src = './mode.js'></script>
+        <link href="./mode.css" rel="stylesheet" />
+        <link href="../assets/css/global.css" rel="stylesheet">
+    </head>
+<body onload="getMode()">
+    <div class="header">
+        <img src="../assets/img/back.png" alt="back" class="back" onclick="goTo('/')">
+        <p>Режимы</p>
+    </div>
+    <div class="container">
+        <div class="mode_container" id="1">
+            <img src="./img/lamp.png" alt="light">
+            <div class="circle"></div>
+        </div>
+        <div class="mode_container" id="2">
+            <img src="./img/colour.png" alt="light">
+            <div class="circle"></div>
+        </div>
+        <div class="mode_container" id="3">
+            <img src="./img/rainbow.png" alt="light">
+            <div class="circle"></div>
+        </div>
+        <div class="mode_container" id="4">
+            <img src="./img/fire.png" alt="light">
+            <div class="circle"></div>
+        </div>
+        <div class="mode_container" id="5">
+            <img src="./img/night.png" alt="light">
+            <div class="circle"></div>
+        </div>
+        <div class="mode_container" id="6">
+            <img src="./img/dices.png" alt="light">
+            <div class="circle"></div>
+        </div>
+    </div>
+</body>
+</html>

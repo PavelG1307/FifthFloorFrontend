@@ -94,7 +94,7 @@ async function checkCode() {
 
 function setToken(token) {
   document.cookie = `token=${token}; path=/; max-age=3600;`
-  goTo('../')
+  goTo('/')
 }
 
 

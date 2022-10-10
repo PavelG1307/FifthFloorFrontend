@@ -1,6 +1,6 @@
 var oReq = new XMLHttpRequest();
 const dev = document.location.hostname === '127.0.0.1'
-const url = false ? 'http://localhost:8080/api' : 'https://fifthfloor.site/api'
+const url = true ? 'http://localhost:8080/api' : 'https://fifthfloor.site/api'
 
 const cookiestring = RegExp('token=[^;]+').exec(document.cookie);
 const token2 =  decodeURIComponent(!!cookiestring ? cookiestring.toString().replace(/^[^=]+./, "") : "");
@@ -8,8 +8,8 @@ const config = { Authorization: `Bearer ${token2}` }
 
 
 async function goTo(url) {
-  if (window.location.pathname == "/" + url) { } else {
-    window.location.href = document.location.origin + '/' + url;
+  if (window.location.pathname !== "/" + url) {
+    window.location.href = document.location.origin + '/lk/' + url;
   }
 }
 
@@ -40,8 +40,8 @@ function StrTimeToInt(strTime) {
 
 async function getData(path, method, data) {
   const handlError = {
-    'Авторизируйтесь!': '/auth',
-    'Станция не найдена': '/station/new'
+    'Авторизируйтесь!': '/lk/auth',
+    'Станция не найдена': '/lk/station/new'
   }
   const res = await axios({
     method,
