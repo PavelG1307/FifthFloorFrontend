@@ -1,4 +1,43 @@
 <!DOCTYPE html>
 <html>
-    <a href="./lk">Перейти в личный кабинет</a>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>5 этаж</title>
+    <link rel="shortcut icon" href="./lk/assets/src/img/favicon.ico" type="image/x-icon">
+    <link href="./styles.css" rel="stylesheet">
+    <link href="./assets/css/global.css" rel="stylesheet">
+    <script defer src="./index.js"></script>
+</head>
+
+<body>
+    <div id="home_page" class="page">
+        <div class="menu">
+            <div class="item" onclick="openPage('about')">О системе</div>
+            <div class="item" onclick="openPage('buy')">Станции</div>
+            <div class="item" onclick="openPage('modules')">Доп оборудование</div>
+            <div class="item" onclick="openPage('lk')">Личный кабинет</div>
+        </div>
+        <div class="button"  onclick="openPage('about')">Подробнее</div>
+        <img src="./assets/img/main.webp" alt="" id="main_img">
+    </div>
+    <div id="about" class="page">
+        о нас
+    </div>
+    <div id="buy" class="page">
+        купить
+    </div>
+    <div id="modules" class="page">
+        модули
+    </div>
+    <div id="lk" class="page">
+    <div class="title">Лучший личный кабинет</div>
+    <div class="subtext">Потому что:</div>
+    <div class="subtext">1. Мы лучшие</div>
+    <div class="subtext">1. Мы лучшие</div>
+    <div class="subtext">1. Мы лучшие</div>
+    <a href="./lk" id="toLK">Перейти в личный кабинет</a>
+    </div>
+</body>
+
 </html>
