@@ -11,7 +11,7 @@
   <link href="../assets/css/toast.min.css" rel="stylesheet">
   <script src="../assets/js/toast.min.js"></script>
   <script src="../assets/js/utils.js"></script>
-  <script src="./settings.js"></script>
+  <script defer src="./settings.js"></script>
 </head>
 
 <body onload="">
@@ -20,10 +20,46 @@
     <p>Настройки</p>
   </div>
   <div class="container">
-    <button class="button">Кнопка 1</button>
-    <button class="button">Кнопка 2</button>
-    <button class="button">Кнопка 3</button>
+    <button class="button" onclick="openSettings('station')">Станция</button>
+    <button class="button" onclick="openSettings('account')">Аккаунт</button>
+    <button class="button" onclick="openSettings('app')">Приложение</button>
+    <button class="button" onclick="openSettings('support')">Подержка</button>
     <button class="button" onclick="logout()">Выйти</button>
   </div>
+  <div class="settings_window hidden" id="station">
+    <div id="close" onclick="closeSettings('station')">×</div>
+  </div>
+  <div class="settings_window hidden" id="account">
+    <div id="close" onclick="closeSettings('account')">×</div>
+    <div class="title">Номер телефона</div>
+    <input type="text" id="phone">
+    <div class="title">Электронная почта</div>
+    <input type="text" id="email">
+    <div class="title">Логин</div>
+    <input type="text" id="login">
+    <div class="title">Пароль</div>
+    <input type="password" id="password" value="--------">
+
+  </div>
+  <div class="settings_window hidden" id="app">
+    <div id="close" onclick="closeSettings('app')">×</div>
+    <div class="title">Отображать заряд станции в</div>
+    <div class="selector" id="battery">
+      <div class="item" id="percent" onclick="select(id, 'battery','app')">%</div>
+      <div class="item select" id="voltage" onclick="select(id, 'battery','app')">V</div>
+    </div>
+    <div class="title">Тема приложения</div>
+    <div class="selector" id="theme">
+      <div class="item select" id="dark" onclick="select(id, 'theme','app')">Темная</div>
+      <div class="item" id="light" onclick="select(id, 'theme','app')">Светлая</div>
+    </div>
+
+  </div>
+  <div class="settings_window hidden" id="support">
+    <div id="close" onclick="closeSettings('support')">×</div>
+    <textarea id="message" name="story" rows="5" cols="33">Ваше сообщение</textarea>
+    <button  onclick="sendSupport('message')">Отправить</button>
+  </div>
 </body>
+
 </html>
