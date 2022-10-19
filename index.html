@@ -2,42 +2,102 @@
 <html>
 
 <head>
-    <meta charset="UTF-8" />
-    <title>5 этаж</title>
-    <link rel="shortcut icon" href="./lk/assets/src/img/favicon.ico" type="image/x-icon">
-    <link href="./styles.css" rel="stylesheet">
-    <link href="./assets/css/global.css" rel="stylesheet">
-    <script defer src="./index.js"></script>
+  <meta charset="UTF-8" />
+  <title>5 этаж</title>
+  <link rel="shortcut icon" href="./lk/assets/src/img/favicon.ico" type="image/x-icon">
+  <link href="./styles.css" rel="stylesheet">
+  <link href="./assets/css/global.css" rel="stylesheet">
+  <script defer src="./index.js"></script>
 </head>
 
 <body>
-    <div id="home_page" class="page">
-        <div class="menu">
-            <div class="item" onclick="openPage('about')">О системе</div>
-            <div class="item" onclick="openPage('buy')">Станции</div>
-            <div class="item" onclick="openPage('modules')">Доп оборудование</div>
-            <div class="item" onclick="openPage('lk')">Личный кабинет</div>
+  <div class="page" id="home_page">
+    <div class="menu">
+      <div class="item" onclick="openPage('home_page')">Главная</div>
+      <div class="item" onclick="openPage('sequre_page')">Безопасность</div>
+      <div class="item" onclick="openPage('device_page')">Устройства</div>
+      <div class="item" onclick="openPage('about_page')">О нас</div>
+      <div class="item" onclick="openPage('lk_page')">Личный кабинет</div>
+
+    </div>
+    <div class="container_main">
+      <div class="text">
+        <div class="title">FIFTH FLOOR</div>
+        <div class="subtitle">УМНЫЙ ДОМ</div>
+        <div class="subtext">Иновационная система с управлением из любой точки планеты и поддержкой большого количества
+          беспроводных датчиков</div>
+        <div class="button">Подробнее</div>
+      </div>
+      <img id="home_img" src="./assets/img/home.png" alt="">
+    </div>
+  </div>
+  <div class="page" id="sequre_page">
+    <div class="container_main">
+      <img class="main_img" src="./assets/img/phone.png" alt="">
+      <div class="text">
+        <div class="title">Умный дом</div>
+        <div class="subtitle">Безопасность</div>
+        <div class="subtext">Система обеспечивает защиту
+          от несанкционированного проникнования,
+          потопов, пожаров и т.д.</div>
+        <div class="button">Подробнее</div>
+      </div>
+    </div>
+    <div class="second_box">
+      <div class="container">
+        <img src="./assets/img/camera_s.png" class="item">
+        <div class="title">БЕЗОПАСНОСТЬ</div>
+        <div class="subtitle">Обеспечение надежной
+          защиты вашего помещения
+          при помощи внешних
+          беспроводных датчиков</div>
+      </div>
+
+      <div class="container">
+        <img src="./assets/img/camera_s.png" class="item">
+        <div class="title">БЕЗОПАСНОСТЬ</div>
+        <div class="subtitle">Обеспечение надежной
+          защиты вашего помещения
+          при помощи внешних
+          беспроводных датчиков</div>
+      </div>
+
+      <div class="container">
+        <img src="./assets/img/camera_s.png" class="item">
+        <div class="title">БЕЗОПАСНОСТЬ</div>
+        <div class="subtitle">Обеспечение надежной
+          защиты вашего помещения
+          при помощи внешних
+          беспроводных датчиков</div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  <div class="page" id="device_page"></div>
+  <div class="page" id="about_page"></div>
+  <div class="page" id="lk_page">
+    <div class="container_main">
+      <div class="text">
+        <div class="title">Личный кабинет</div>
+        <div class="subtext">
+          <div class="string">➤ Максимально удобное, нативное использование</div>
+          <div class="string">➤ Позволяет настроить сценарии работы модулей, подключать/удалить модули</div>
+          <div class="string">➤  Управление всеми функциями базовой станции</div>
+          <div class="string">➤  Получение уведомлений о срабатывания модуля</div>
+          <div class="string">➤  Не требует установки</div>
         </div>
-        <div class="button"  onclick="openPage('about')">Подробнее</div>
-        <img src="./assets/img/main.webp" alt="" id="main_img">
+      </div>
+      <div class="main_img">
+        <img src="./assets/img/phone_mockup.png" alt="">
+        <div class="button" onclick="goTo('./lk')">Перейти</div>
+      </div>
     </div>
-    <div id="about" class="page">
-        о нас
-    </div>
-    <div id="buy" class="page">
-        купить
-    </div>
-    <div id="modules" class="page">
-        модули
-    </div>
-    <div id="lk" class="page">
-    <div class="title">Лучший личный кабинет</div>
-    <div class="subtext">Потому что:</div>
-    <div class="subtext">1. Мы лучшие</div>
-    <div class="subtext">1. Мы лучшие</div>
-    <div class="subtext">1. Мы лучшие</div>
-    <a href="./lk" id="toLK">Перейти в личный кабинет</a>
-    </div>
+  </div>
+
+    <img class="sots" id="sots2" src="assets/img/Sots/sots3.png" alt="">
+    <img class="sots" id="sots1" src="./assets/img/Sots/Vector Smart Object (Double Click to Edit).png" alt="">
+    <img id="backgound_image" src="./assets/img/background.png" alt="">
 </body>
 
 </html>
