@@ -163,4 +163,6 @@ textarea {
     width: 50vw;
     margin-top: 10%;
     margin-bottom: -10%;
+    background-color: rgb(66, 66, 66);
+    border-radius: 50px;
 }

@@ -13,6 +13,10 @@ const settings = {
         email: 'julu13@yandex.ru',
         login: 'admin',
         password: null
+    },
+    station: {
+        emergency_light: 'on_em_light',
+        nightlight: 'on'
     }
 }
 function select(id, type, window) {
@@ -57,4 +61,8 @@ async function sendSupport(id) {
     console.log(message)
     closeSettings('support')
     fastMessage('Мы дадим вам ответ на электронную почту')
+}
+
+async function deactiveStation() {
+    console.log('Отключил станцию')
 }

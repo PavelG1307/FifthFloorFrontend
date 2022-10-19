@@ -1,4 +1,3 @@
-let delay
 function listenLongClick(element, callbackLongClick, longpress, callbackClick) {
   element.addEventListener('touchstart', setTimer, true)
   element.addEventListener('mousedown', setTimer, true)

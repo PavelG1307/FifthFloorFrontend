@@ -28,6 +28,17 @@
   </div>
   <div class="settings_window hidden" id="station">
     <div id="close" onclick="closeSettings('station')">×</div>
+    <div class="title">Ночник</div>
+    <div class="selector" id="nightlight">
+      <div class="item" id="off" onclick="select(id, 'nightlight','station')">Выкл</div>
+      <div class="item select" id="on" onclick="select(id, 'nightlight','station')">Вкл</div>
+    </div>
+    <div class="title">Аварийный свет</div>
+    <div class="selector" id="emergency_light">
+      <div class="item" id="on_em_light" onclick="select(id, 'emergency_light','station')">Выкл</div>
+      <div class="item select" id="on_em_light" onclick="select(id, 'emergency_light','station')">Вкл</div>
+    </div>
+    <button onclick="deactiveStation()">Отправить</button>
   </div>
   <div class="settings_window hidden" id="account">
     <div id="close" onclick="closeSettings('account')">×</div>
@@ -53,7 +64,6 @@
       <div class="item select" id="dark" onclick="select(id, 'theme','app')">Темная</div>
       <div class="item" id="light" onclick="select(id, 'theme','app')">Светлая</div>
     </div>
-
   </div>
   <div class="settings_window hidden" id="support">
     <div id="close" onclick="closeSettings('support')">×</div>
