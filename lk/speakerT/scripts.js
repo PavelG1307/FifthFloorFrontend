@@ -11,7 +11,11 @@ function setLevel(level) {
 }
 
 // setLevel(350)
-window.addEventListener('scroll', (e)=>e.preventDefault(), false)
+function preventBehavior(e) {
+  e.preventDefault(); 
+};
+
+document.addEventListener("touchmove", preventBehavior, {passive: false});
 
 const wheel = document.getElementsByClassName('wheel')[0]
 let isDrawing = false
