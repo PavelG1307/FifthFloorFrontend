@@ -11,6 +11,7 @@ function setLevel(level) {
 }
 
 // setLevel(350)
+window.addEventListener('scroll', (e)=>e.preventDefault(), false)
 
 const wheel = document.getElementsByClassName('wheel')[0]
 let isDrawing = false
