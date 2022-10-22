@@ -134,3 +134,7 @@
         transform: rotateZ(150deg);
   }
   
+  #value {
+    position: absolute;
+    font-size: 3rem;
+  }

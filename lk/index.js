@@ -4,6 +4,8 @@ const stat = {
   "guard": false
 }
 
+getSettings()
+
 function ChangeState(id) {
   
   if (id == 'speaker') {
@@ -134,7 +136,8 @@ function setStatus(status) {
 };
 
 function BatteryCharge(val) {
-  if (showpercent) {
+  console.log(settings)
+  if (settings?.app?.battery === 'percent') {
     const v = Math.floor((val - 6) / (8.2 - 6))
     return String( v >= 0 ? v : 0) + '%';
   } else {

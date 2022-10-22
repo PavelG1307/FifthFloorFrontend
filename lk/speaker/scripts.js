@@ -1,38 +1,37 @@
-function setLevel(level) {
-  console.log(level)
-  const path = document.getElementById('path')
-  path.style = `stroke-dashoffset: calc((1 - ${level} / 360) * 620);`
-  const indicator = document.getElementById('indicator')
-  indicator.style = `-webkit-transform: rotateZ(${level}deg); transform: rotateZ(${level}deg);`
-}
+(function() {
+  $(document).ready(function() {
+    var is_dragging;
+    is_dragging = false;
+    $(document).on("mousedown touchstart", ".circle", function(e) {
+      return is_dragging = true;
+    });
+    $(document).on("mouseup touchend", function(e) {
+      return is_dragging = false;
+    });
+    return $(window).on("mousemove touchmove", function(e) {
+      var angle, center_x, center_y, circle, delta_x, delta_y, pos_x, pos_y, touch;
+      if (is_dragging) {
+        circle = $(".circle");
+        touch = void 0;
+        if (e.originalEvent.touches) {
+          touch = e.originalEvent.touches[0];
+        }
+        center_x = ($(circle).outerWidth() / 2) + $(circle).offset().left;
+        center_y = ($(circle).outerHeight() / 2) + $(circle).offset().top;
+        pos_x = e.pageX || touch.pageX;
+        pos_y = e.pageY || touch.pageY;
+        delta_y = center_y - pos_y;
+        delta_x = center_x - pos_x;
+        angle = Math.atan2(delta_y, delta_x) * (180 / Math.PI);
+        angle -= 90;
+        if (angle < 0) {
+          angle = 360 + angle;
+        }
+        angle = Math.round(angle);
+        $(".dot").css("transform", "rotate(" + angle + "deg)");
+        return $(".debug").html(angle + "deg");
+      }
+    });
+  });
 
-// setLevel(350)
-
-const wheel = document.getElementsByClassName('wheel')[0]
-let isDrawing = false;
-let rect = wheel.getBoundingClientRect();
-console.log(rect.x, rect.y);
-let x = 142
-let y = 138
-
-// wheel.addEventListener('mousedown', (ev)=>{console.log(ev)})
-// wheel.addEventListener('mousemove', (ev)=>{console.log(ev)});
-
-const move = (e) => {
-  if (isDrawing) {
-    const dy = e.offsetY - y 
-    const dx = e.offsetX - x
-    const an =  Math.atan(dy / dx)
-    if (dx > 0) {
-      deg_an = 90 + (an * 180) / Math.PI
-    } else {
-      deg_an = 270 + (an * 180) / Math.PI
-    }
-    // console.log(deg_an)
-    setLevel(Math.floor(deg_an))
-    // x = e.offsetX;
-    // y = e.offsetY;
-  }
-}
-
-wheel.addEventListener('click', move)
+}).call(this);

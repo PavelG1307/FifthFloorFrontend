@@ -35,15 +35,15 @@
     </div>
     <div class="title">Аварийный свет</div>
     <div class="selector" id="emergency_light">
-      <div class="item" id="on_em_light" onclick="select(id, 'emergency_light','station')">Выкл</div>
+      <div class="item" id="off_em_light" onclick="select(id, 'emergency_light','station')">Выкл</div>
       <div class="item select" id="on_em_light" onclick="select(id, 'emergency_light','station')">Вкл</div>
     </div>
-    <button onclick="deactiveStation()">Отправить</button>
+    <button onclick="deactiveStation()">Отключить станцию</button>
   </div>
   <div class="settings_window hidden" id="account">
     <div id="close" onclick="closeSettings('account')">×</div>
     <div class="title">Номер телефона</div>
-    <input type="text" id="phone">
+    <input type="text" id="phonenumber">
     <div class="title">Электронная почта</div>
     <input type="text" id="email">
     <div class="title">Логин</div>

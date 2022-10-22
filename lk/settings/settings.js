@@ -3,29 +3,14 @@ function logout() {
     goTo('auth')
 }
 
-const settings = {
-    app: {
-        battery: 'percent',
-        theme: 'dark'
-    },
-    account: {
-        phone: 89009728125,
-        email: 'julu13@yandex.ru',
-        login: 'admin',
-        password: null
-    },
-    station: {
-        emergency_light: 'on_em_light',
-        nightlight: 'on'
-    }
-}
+const settings = {}
+
 function select(id, type, window) {
     const targetEl = document.getElementById(id)
     const selectedEl = document.getElementById(type).getElementsByClassName('select')
     selectedEl[0].classList.remove('select')
     targetEl.classList.add('select')
     settings[window][type] = id
-    console.log(settings)
 }
 
 function openSettings(id) {
@@ -33,12 +18,11 @@ function openSettings(id) {
     document.getElementById(id).classList.remove('hidden')
 }
 
-function closeSettings(id) {
+async function closeSettings(id) {
     document.getElementsByClassName('container')[0].classList.remove('hidden')
     document.getElementById(id).classList.add('hidden')
+    await saveSettings(id)
 }
-
-fillPage()
 
 function fillPage() {
     for (const i in Object.keys(settings)) {
@@ -52,13 +36,12 @@ function fillPage() {
             }
         }
     }
-    document
 }
 
 async function sendSupport(id) {
     const message = document.getElementById(id).value
     console.log('Ваше мнение очень важно для нас')
-    console.log(message)
+    settings.support.message = message
     closeSettings('support')
     fastMessage('Мы дадим вам ответ на электронную почту')
 }
@@ -66,3 +49,12 @@ async function sendSupport(id) {
 async function deactiveStation() {
     console.log('Отключил станцию')
 }
+
+async function saveSettings(type) {
+    if (type in settings) {
+        const data = { type, data: settings[type] }
+        await getData('/settings', 'post', data)
+    }
+}
+
+getSettings()
