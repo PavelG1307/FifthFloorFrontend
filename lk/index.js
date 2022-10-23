@@ -1,3 +1,13 @@
+window.addEventListener('load', async () => {
+  if (navigator.serviceWorker) {
+    try {
+    await navigator.serviceWorker.register('./sw.js')
+    } catch (e) {
+      console.log('Service worker register fail')
+    }
+  }
+})
+
 const stat = {
   "light": false,
   "speaker": false,
