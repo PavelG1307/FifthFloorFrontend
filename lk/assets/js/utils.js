@@ -1,8 +1,8 @@
 var oReq = new XMLHttpRequest();
 const dev = document.location.hostname === '127.0.0.1'
-const url = false ? 'http://localhost:8080/api' : 'https://fifthfloor.site/api'
+const url = true ? 'http://localhost:8080/api' : 'https://fifthfloor.site/api'
 
-const cookiestring = RegExp('token=[^;]+').exec(document.cookie);
+const cookiestring = RegExp('access_token=[^;]+').exec(document.cookie);
 const token2 =  decodeURIComponent(!!cookiestring ? cookiestring.toString().replace(/^[^=]+./, "") : "");
 const config = { Authorization: `Bearer ${token2}` }
 
@@ -53,6 +53,7 @@ async function getData(path, method, data) {
     return res.data
   } else {
     const message = res.data.message
+    console.log(res.data)
     if (message in handlError) {
       document.location.href = window.location.href = document.location.origin + handlError[message];
       return
@@ -65,7 +66,7 @@ settings = {}
 
 async function getSettings() {
   const res = await getData('/settings', 'get', {})
-  if (res.success) {
+  if (res?.success) {
       Object.assign(settings, res.data)
       try {
         if (fillPage) fillPage()

@@ -1,7 +1,8 @@
 let mode_sign_in = true
+let login = null
 
 async function SignIn() {
-  const login = document.querySelector('#login').value;
+  login = document.querySelector('#login').value;
   const password = document.querySelector("#password").value;
   if (login === "") {
     fastMessage('Введите логин')
@@ -36,12 +37,14 @@ async function SignIn() {
     params: mode_sign_in ? json_data : {},
     data: mode_sign_in ? {} : json_data
   }).catch(e => console.log(e))
-  if (res && res.data.success) {
+  console.log(res.data)
+  if (res?.data?.success) {
     if (mode_sign_in) {
-      if(!(res.data && res.data.token)) {
+      if(!res.data?.token) {
         fastMessage('Ошибка')
         return
       }
+      console.log(res)
       setToken(res.data.token)
     } else {
       document.querySelector('.container').classList.add('hidden')
@@ -81,19 +84,21 @@ document.querySelector('#code').addEventListener('input', e => {
   }
 })
 
+
 async function checkCode() {
   const code = document.querySelector('#code').value
   const res = await axios({
     method: 'get',
-    url: url + '/auth/code',
-    params: { code }
+    url: url + '/auth/sign',
+    params: { login, code }
   }).catch(e => console.log(e))
   if (res && res.data.success) setToken(res.data.token)
   else fastMessage(res.data.message || 'Ошибка на сервере')
 }
 
 function setToken(token) {
-  document.cookie = `token=${token}; path=/; max-age=3600;`
+  console.log(token)
+  document.cookie = `access_token=${token}; path=/; max-age=3600;`
   goTo('/')
 }
 

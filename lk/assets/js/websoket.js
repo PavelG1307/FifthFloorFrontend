@@ -1,4 +1,4 @@
-const token = getCook('token')
+const token = getCook('access_token')
 const showpercent = true;
 
 let wsApp = (function(){

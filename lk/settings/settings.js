@@ -1,5 +1,6 @@
 function logout() {
     document.cookie = 'token='
+    document.cookie = 'access_token=""; path=/; max-age=3600;'
     goTo('auth')
 }
 

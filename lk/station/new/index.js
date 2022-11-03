@@ -1,5 +1,17 @@
 station_url = 'http://192.168.0.101/'
 
+let stationKey = null
+
+if (!stationKey) {
+  getData('/station/key', 'get').then((res) => {
+    if (!res?.data.key) {
+      fastMessage('Произошла ошибка :-( Попробуйте еще раз')
+      return
+    }
+    stationKey = res.data.key
+  })
+}
+
 let saveData = {}
 let pass = 0
 async function checkConnect(url, data, method) {
@@ -10,7 +22,10 @@ async function checkConnect(url, data, method) {
   }
   pass = 0
   console.log(url)
-  if (url) return await axios({ method: method || 'get', url: url || station_ur, data: data || { active: 'q' } }).catch(() => { })
+  // if (url) {
+  //   const res = await axios({ method: method || 'get', url: url || station_ur, data: data || { active: 'q' } }).catch(() => { })
+  //   return { success: !!res }
+  // }
   console.log(`Выполнен запрос: ${url || station_url} с параметрами ${JSON.stringify(data) || '(без)'} `)
   return { data: { success: true } }
 }
@@ -33,7 +48,7 @@ function connect() {
   document.querySelector('#info').classList.add('hiden')
   document.querySelector('#connecting').classList.remove('hiden')
   const { url, data, method } = saveData
-  connecting(null, url, data, method)
+  connecting( null, station_url, data, method)
 }
 
 function connecting(next, url, data, method) {
@@ -72,7 +87,6 @@ function connecting(next, url, data, method) {
   }, 10000)
 }
 
-let stationKey = null
 
 async function send() {
   const ssid = document.querySelector('#ssid').value
@@ -80,14 +94,6 @@ async function send() {
   if (!ssid || password.length < 8) {
     fastMessage('Некорректный SSID и/или пароль')
     return
-  }
-  if (!stationKey) {
-    keyData = await getData('/api/station/key', 'get')
-    if (!keyData?.key) {
-      fastMessage('Произошла ошибка :-( Попробуйте еще раз')
-      return
-    }
-    stationKey = keyData.key
   }
   const data = { ssid, password, key: stationKey }
   const res = await axios({
