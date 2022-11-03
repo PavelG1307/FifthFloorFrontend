@@ -1,5 +1,4 @@
 const token = getCook('token')
-console.log(token)
 const showpercent = true;
 
 let wsApp = (function(){

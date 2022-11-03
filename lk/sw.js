@@ -28,7 +28,7 @@ self.addEventListener('fetch', event => {
     if (!url.pathname.includes('api')) {
         event.respondWith(cacheFirst(request))
     } else {
-        event.respondWith(networkFirst(request))
+        // event.respondWith(networkFirst(request))
     }
 })
 

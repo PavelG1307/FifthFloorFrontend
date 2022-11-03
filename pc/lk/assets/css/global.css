@@ -1,0 +1,65 @@
+body {
+    background: radial-gradient(circle at 150%, #471f71, #0f1219);
+    font-family: 'Montserrat', sans-serif;
+    -webkit-touch-callout: none !important;
+    color: white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+* .light{
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+.light .header {
+    color: #000000;
+}
+.light .btn{
+    background: linear-gradient(45deg, #e8ebf8, #ffffff);
+    box-shadow: #0f121929 10px 10px 10px;
+}
+
+.light .main_btn{
+    background: linear-gradient(45deg, #e8ebf8, #ffffff);
+    box-shadow: #0f121929 10px 10px 10px;
+}
+
+.light .main_btn img {
+    filter: invert();
+    opacity: 0.9;
+}
+.light .main_btn .main_btn_text {
+    color: #fff;
+}
+
+.light .btn img {
+    filter: invert();
+    opacity: 0.9;
+}
+
+.light .circle {
+    background-color: rgb(247, 13, 21);
+}
+
+.light .active .circle {
+    background-color: rgb(36, 247, 13);
+}
+/* img { pointer-events: none; } */
+
+button:active button:focus {
+    outline: 0 !important;
+}
+
+button::-moz-focus-inner {
+    border: 0;
+}
+
+.back {
+    position: absolute;
+    left: 10%;
+    height: 4%;
+    cursor: pointer;
+    filter: invert();
+}

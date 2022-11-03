@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100-900&display=swap');
+
+* {
+    font-size: calc(.6vh + .6vw);
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.left_container {
+    width: 40%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#time {
+    font-size: 7rem;
+    text-align: center;
+    font-weight: 900;
+}
+
+#battery {
+    width: 80%;
+    text-align: end;
+    font-size: 2rem;
+}
+
+.right_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    width: 60%;
+    border-left: solid 1px rgba(255, 255, 255, 0.477);
+}
+
+.subcontainer {
+    height: 34%;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.477);
+
+}
+
+
+button {
+    width: 50%;
+    height: 12%;
+    background-color: #2d2e40;
+    font-size: 4vw;
+    border: none;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 5% 0;
+    font-size: 1rem;
+}
+
+.left_container .connect_info {
+    text-align: center;
+}
+
+.left_container .info {
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.left_container .actions_btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60%;
+}
+
+#modes_container {
+    width: 100%;
+    height: 34vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.mode_container {
+    position: relative;
+    width: 7vw;
+    margin: 0% 7% 0 7%;
+    background-color: #2d2e40;
+    /* box-shadow: 5px 5px 50px rgba(0,0,0,.2); */
+    aspect-ratio: 1 / 1;
+    border-radius: 15%;
+    cursor: pointer;
+    outline: none;
+}
+
+.mode_container img {
+    width: 50%;
+    filter: grayscale() brightness(.8) invert();
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.circle {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    border-radius: 50%;
+    background-color: #9c636a;
+    box-shadow: 0 0 10px rgba(156, 99, 106, .5);
+    top: 10%;
+    right: 10%;
+    opacity: .8;
+}
+
+.yellow .circle {
+    background-color: #9c9261;
+    box-shadow: 0 0 10px rgba(156, 146, 97, .5);
+}
+
+.active .circle {
+    background-color: #619c66;
+    box-shadow: 0 0 10px rgba(97, 156, 102, .5);
+}
+
+
+
+
+
+
+#sensors_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sensor_container img{
+    align-self: center;
+    width: 65%;
+    padding: 7%;
+    outline: none;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.sensor{
+    position: relative;
+    width: 7vw;
+    height: 7vw;
+    margin: 2% 2.5% 0 2.5%;
+    background-color: #2d2e40;
+    /* box-shadow: 5px 5px 50px rgba(0,0,0,.2); */
+    aspect-ratio: 1 / 1;
+    border-radius: 15%;
+    cursor: pointer;
+    outline: none;
+}
+
+.sensor_container{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    outline: none;
+}
+
+.name{
+    width: 60%;
+    font-size: .65rem;
+    text-align: center;
+    align-self: center;
+    margin: 0;
+    font-weight: 100;
+    word-break: break-all;
+}
+
+.value{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 900;
+    padding: 10%;
+    
+}
+
+.location{
+    width: 100%;
+    font-size: .65rem;
+    text-align: center;
+    font-weight: 100;
+}
+
+.sensor_container img{
+    align-self: center;
+    width: 50%;
+    padding: 7%;
+    outline: none;
+}
+
+
+#alarms_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.alarm{
+    position: relative;
+    width: 7vw;
+    height: 7vw;
+    margin: 5vh 0 0 5vw;
+    background-color: #2d2e40;
+    aspect-ratio: 1 / 1;
+    border-radius: 15%;
+    cursor: pointer;
+    outline: none;
+}
+
+.alarm_container{
+    /* background-color: rgb(255, 61, 61); */
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    outline: none;
+}
+
+.time{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 900;
+    padding: 10%;
+}
+
+.remains{
+    position: absolute;
+    bottom: 13%;
+    width: 100%;
+    
+    text-align: center;
+    font-weight: 100;
+}
+.remains p{
+    font-size: .6rem;
+}

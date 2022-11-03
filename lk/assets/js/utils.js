@@ -53,7 +53,6 @@ async function getData(path, method, data) {
     return res.data
   } else {
     const message = res.data.message
-    console.log(res.data)
     if (message in handlError) {
       document.location.href = window.location.href = document.location.origin + handlError[message];
       return
@@ -73,3 +72,16 @@ async function getSettings() {
       } catch {}
   }
 }
+
+function redirect() {
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    if (document.location.pathname.includes('/pc/lk')) {
+      document.location.href = document.location.origin + '/lk'
+    }
+  } else {
+    if (!document.location.pathname.includes('/pc/lk')) {
+      document.location.href = document.location.origin + '/pc/lk'
+    }
+  }
+}
+redirect()
