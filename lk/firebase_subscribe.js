@@ -21,6 +21,7 @@ if ('Notification' in window) {
 }
 
 function subscribe() {
+  console.log('subscribe');
   // запрашиваем разрешение на получение уведомлений
   messaging.requestPermission()
     .then(function () {
@@ -28,7 +29,6 @@ function subscribe() {
       messaging.getToken()
         .then(function (currentToken) {
           console.log(currentToken);
-
           if (currentToken) {
             sendTokenToServer(currentToken);
           } else {
@@ -37,7 +37,7 @@ function subscribe() {
           }
         })
         .catch(function (err) {
-          console.warn('При получении токена произошла ошибка.', err);
+          console.log('При получении токена произошла ошибка.', err);
           setTokenSentToServer(false);
         });
     })

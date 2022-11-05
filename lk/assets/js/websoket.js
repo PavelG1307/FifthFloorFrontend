@@ -4,8 +4,12 @@ const showpercent = true;
 let wsApp = (function(){
   const wsApp = {}
   const type_ws = "wss"
-  // const wsUrl = 'ws://localhost:8080'
-  const wsUrl = 'wss://fifthfloor.site/ws'
+  let wsUrl
+  if (document.location.hostname === '127.0.0.1'){
+    wsUrl = 'ws://localhost:8080'
+  } else {
+    wsUrl = 'wss://fifthfloor.site/ws'
+  }
   // const wsUrl = type_ws + '://' + document.location.hostname + "/ws"
   let websocket;
 

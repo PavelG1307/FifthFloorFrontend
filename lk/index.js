@@ -8,27 +8,6 @@ window.addEventListener('load', async () => {
   }
 })
 
-
-const button = document.getElementById('subscribe');
-button.addEventListener('click', () => {
-  Notification.requestPermission().then((result) => {
-    if (result === 'granted') {
-      randomNotification();
-    }
-  });
-})
-
-function randomNotification() {
-  const notifTitle = 'Название';
-  const notifBody = 'Успееееех';
-  const options = {
-    body: notifBody
-  };
-  new Notification(notifTitle, options);
-  console.log('Скоро будет')
-  setTimeout(randomNotification, 5000);
-}
-
 const stat = {
   "light": false,
   "speaker": false,
