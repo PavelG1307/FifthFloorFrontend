@@ -9,6 +9,7 @@ async function getStatus() {
   const res = await getData('/module', 'get', {})
   console.log(res.data)
   setStatus(res.data)
+  console.log(res.data)
 }
 
 function setStatus(modules) {

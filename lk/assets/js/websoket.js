@@ -4,8 +4,8 @@ const showpercent = true;
 let wsApp = (function(){
   const wsApp = {}
   const type_ws = "wss"
-  // const wsUrl = 'ws://localhost:8080'
-  const wsUrl = 'wss://fifthfloor.site/ws'
+  const wsUrl = 'ws://localhost:8080'
+  // const wsUrl = 'wss://fifthfloor.site/ws'
   // const wsUrl = type_ws + '://' + document.location.hostname + "/ws"
   let websocket;
 
@@ -34,7 +34,10 @@ let wsApp = (function(){
 
   function onMessage(evt){
     const message = JSON.parse(evt.data)
-    console.log(`Getting data: ${evt.data}`)
+    // console.log(`Getting data: ${evt.data}`)
+    if (message?.type === 'notification') {
+      return fastMessage(message?.text)
+    }
     if (message.success) {
       wsHandler(message)
       return

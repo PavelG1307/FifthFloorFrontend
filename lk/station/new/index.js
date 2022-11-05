@@ -1,4 +1,4 @@
-station_url = 'http://192.168.0.101/'
+station_url = 'http://192.168.4.1/a'
 
 let stationKey = null
 
@@ -14,18 +14,19 @@ if (!stationKey) {
 
 let saveData = {}
 let pass = 0
-async function checkConnect(url, data, method) {
-  saveData = { url, data, method }
+async function checkConnect(url, params, method) {
+  saveData = { url, params, method }
   if (pass < 2) {
     pass++
     return { data: false }
   }
   pass = 0
   console.log(url)
-  // if (url) {
-  //   const res = await axios({ method: method || 'get', url: url || station_ur, data: data || { active: 'q' } }).catch(() => { })
-  //   return { success: !!res }
-  // }
+  if (url) {
+    const res = await axios({ method: method || 'get', url: url || station_ur, params: params || { active: 'q' } }).catch(() => { })
+    console.log(res)
+    return { success: !!res, data: res.data }
+  }
   console.log(`Выполнен запрос: ${url || station_url} с параметрами ${JSON.stringify(data) || '(без)'} `)
   return { data: { success: true } }
 }
@@ -48,7 +49,7 @@ function connect() {
   document.querySelector('#info').classList.add('hiden')
   document.querySelector('#connecting').classList.remove('hiden')
   const { url, data, method } = saveData
-  connecting( null, station_url, data, method)
+  connecting( null, station_url, { active: 'q' }, 'get')
 }
 
 function connecting(next, url, data, method) {
@@ -58,7 +59,8 @@ function connecting(next, url, data, method) {
     const res = await checkConnect(url, data, method)
     console.log(res.data)
     // const res = ''
-    if (res && res.data && res.data.success) {
+    if (res && res.success) {
+      console.log('succeeesss');
       clearInterval(animation)
       clearInterval(timeout)
       document.querySelectorAll('input').forEach(el => el.addEventListener('keydown', function (e) {
@@ -78,7 +80,7 @@ function connecting(next, url, data, method) {
       text.innerText = ''
     }
 
-  }, 500)
+  }, 750)
   const timeout = setTimeout(() => {
     clearInterval(animation)
     document.querySelector('#connecting').classList.add('hiden')
@@ -95,11 +97,11 @@ async function send() {
     fastMessage('Некорректный SSID и/или пароль')
     return
   }
-  const data = { ssid, password, key: stationKey }
+  const params = { ssid, password, key: stationKey }
   const res = await axios({
     url: station_url,
     methods: 'get',
-    data
+    params
   }).catch(() => { })
   if (!res) {
     fastMessage('Произошла ошибка :-( Попробуйте еще раз')
