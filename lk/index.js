@@ -9,9 +9,9 @@ window.addEventListener('load', async () => {
 })
 
 const stat = {
-  "light": false,
-  "speaker": false,
-  "guard": false
+  light: false,
+  speaker: false,
+  guard: false
 }
 
 getSettings()
@@ -123,7 +123,7 @@ function setStatus(status) {
   document.getElementById("time").innerHTML = IntTimeToStr(status["time"]);
   document.getElementById("battery").innerHTML = BatteryCharge(status["battery"]);
   const off = status.lamp === 0
-  stat.light = off
+  stat.light = !off
   document.getElementById('on_btn').classList.value = off ? 'active' : ''
   document.getElementById('off_btn').classList.value = !off ? 'active' : ''
   const alarm = document.getElementById('alarm').classList
