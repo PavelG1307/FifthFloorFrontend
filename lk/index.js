@@ -37,7 +37,7 @@ async function ChangeStateMb() {
   const off_el = document.getElementById('off_btn').classList
   const res = await getData('/station/brightness', 'post', 
     {
-      "brightness": stat.light ? 100 : 0
+      "brightness": stat.light ? 10 : 0
     })
     if (res) {
       if (stat.light) {
