@@ -75,14 +75,14 @@ async function getSettings() {
 }
 
 function redirect() {
-  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    if (document.location.pathname.includes('/pc/lk')) {
-      document.location.href = document.location.origin + '/lk'
-    }
-  } else {
-    if (!document.location.pathname.includes('/pc/lk')) {
-      document.location.href = document.location.origin + '/pc/lk'
-    }
-  }
+  // if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+  //   if (document.location.pathname.includes('/pc/lk')) {
+  //     document.location.href = document.location.origin + '/lk'
+  //   }
+  // } else {
+  //   if (!document.location.pathname.includes('/pc/lk')) {
+  //     document.location.href = document.location.origin + '/pc/lk'
+  //   }
+  // }
 }
 redirect()

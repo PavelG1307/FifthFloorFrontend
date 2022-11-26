@@ -9,7 +9,7 @@ let count_actions = 0
 let type_value = ''
 
 async function addTask() {
-  if (!(['info', 'protection'].includes(mode))) {
+  if (!(['info', 'protection', 'managers'].includes(mode))) {
     return
   }
   const button = document.getElementById('btn_add')
@@ -72,7 +72,7 @@ async function getModule() {
 }
 
 async function setData(data) {
-  if (!(['info', 'protection'].includes(data.mode))) document.querySelector('#btn_add').remove()
+  if (!(['info', 'protection', 'managers'].includes(data.mode))) document.querySelector('#btn_add').remove()
   document.querySelector('.type').textContent = data.type
   document.getElementById('name').setAttribute('value', data.name)
   document.getElementById('room').setAttribute('value', data.location)
